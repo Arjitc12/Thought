@@ -418,124 +418,168 @@ body, html {
 }
 @media (max-width: 768px) {
   .title-layer {
-    top: 15px;
+    top: env(safe-area-inset-top, 15px);
     left: 15px;
     right: 15px;
     text-align: left;
     background: rgba(5, 8, 20, 0.4);
-    padding: 10px;
+    padding: 12px;
     border-radius: 12px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   .title-layer h1 {
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 4px;
+    letter-spacing: 0.5px;
   }
   
   .title-layer p {
-    font-size: 11px;
-    display: none; /* Hide subtitle on mobile to save space */
+    font-size: 10px;
+    display: none;
   }
 
   .start-journey-btn {
-    padding: 6px 16px;
-    font-size: 12px;
+    padding: 8px 16px;
+    font-size: 11px;
+    border-radius: 20px;
   }
 
-  /* Floating Card conversion for Overlay Panel */
-  .overlay-panel {
+  /* Bottom Sheet Drawer Implementation */
+  .overlay-panel.bottom-sheet {
     top: auto;
-    right: 15px;
-    bottom: 15px;
-    left: 15px;
-    width: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     height: auto;
-    max-height: 48vh;
-    border-radius: 16px;
-    padding: 18px;
+    max-height: 85vh;
+    border-radius: 24px 24px 0 0;
+    padding: 24px 20px env(safe-area-inset-bottom, 24px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    border-bottom: none;
+    background: rgba(10, 15, 30, 0.7);
+    backdrop-filter: blur(32px) saturate(200%);
+    -webkit-backdrop-filter: blur(32px) saturate(200%);
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
-  .overlay-panel .mini-map-container {
-    margin-top: 12px;
-    padding-top: 12px;
-    transform: scale(0.9);
-    transform-origin: top;
+  .drag-handle {
+    width: 40px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    margin: -12px auto 20px;
+    flex-shrink: 0;
+  }
+
+  .overlay-content-scroll {
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* HUD Scanline for Bottom Sheet */
+  .overlay-panel.bottom-sheet::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(
+      rgba(74, 144, 226, 0.05) 0%,
+      transparent 10%,
+      transparent 90%,
+      rgba(74, 144, 226, 0.05) 100%
+    );
+    pointer-events: none;
+    z-index: 5;
   }
 
   .overlay-panel h2 {
-    font-size: 20px;
-    margin-bottom: 8px;
+    font-size: 24px;
+    margin-bottom: 12px;
   }
 
   .description {
-    font-size: 13px;
-    margin-bottom: 12px;
-    line-height: 1.5;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
   }
 
   .relations h3 {
     font-size: 11px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   .chain-btn {
-    padding: 10px 12px;
-    font-size: 13px;
+    padding: 12px 14px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
   }
 
   .reset-btn {
-    padding: 6px 16px;
-    font-size: 12px;
+    padding: 8px 16px;
+    font-size: 11px;
+    border-radius: 20px;
   }
 
-  .button-group {
-    justify-content: flex-start;
-  }
-
-  /* Floating Card conversion for News Overlay */
+  /* News Overlay as Bottom Sheet too */
   .news-overlay {
     top: auto;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    width: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
     height: auto;
-    max-height: 45vh;
-    border-radius: 16px;
-    padding: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    max-height: 70vh;
+    border-radius: 24px 24px 0 0;
+    padding: 20px;
+    border-bottom: none;
+    background: rgba(10, 15, 30, 0.8);
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4);
   }
 
-  /* Search Panel Adjustments - Move up to clear floating cards */
+  /* Search Panel Adjustments - Move up to clear bottom sheets */
   .date-search-panel {
-    bottom: 20px;
-    width: 90%;
-    z-index: 25; /* Ensure it stays above canvas */
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 20px);
+    width: 94%;
+    padding: 0 10px;
   }
 
-  /* If an overlay is active, push the search panel higher if needed, 
-     but usually users dismiss overlays to search. For now, just ensure z-index. */
+  /* Hide search when overlay is active on mobile to avoid UI clutter */
+  .overlay-panel.bottom-sheet ~ .date-search-panel,
+  .news-overlay ~ .date-search-panel {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 20px);
+    transition: all 0.3s ease;
+  }
 
   .date-search-panel form {
     width: 100%;
-    padding: 6px 6px 6px 12px;
+    padding: 4px 4px 4px 12px;
+    background: rgba(10, 15, 30, 0.8);
   }
 
   .date-input {
     width: 100%;
-    font-size: 16px;
-    padding: 8px 0;
+    font-size: 15px;
+    padding: 10px 0;
   }
 
   .search-btn {
-    padding: 8px 16px;
+    padding: 8px 18px;
     font-size: 13px;
+    border-radius: 20px;
   }
 }

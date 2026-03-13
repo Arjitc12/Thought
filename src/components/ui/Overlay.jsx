@@ -1,9 +1,12 @@
-import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import React, { useEffect } from 'react'
+import { motion, AnimatePresence, useDragControls } from 'framer-motion'
 import { dataset } from '../../data/dataset'
 import MiniMap from './MiniMap'
+import { haptics } from '../../utils/haptics'
 
 export default function Overlay({ activeNode, setActiveNode }) {
+  const dragControls = useDragControls()
+
   // Find causes highlighting this node
   const causes = activeNode 
     ? dataset.edges
@@ -20,17 +23,45 @@ export default function Overlay({ activeNode, setActiveNode }) {
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
 
+  useEffect(() => {
+    if (activeNode) {
+      haptics.light()
+    }
+  }, [activeNode])
+
+  const handleClose = () => {
+    haptics.medium()
+    setActiveNode(null)
+  }
+
+  const handleLinkClick = (node) => {
+    haptics.light()
+    setActiveNode(node)
+  }
+
   return (
     <AnimatePresence>
       {activeNode && (
         <motion.div
-          initial={isMobile ? { y: '100%', opacity: 0 } : { x: '100%', opacity: 0 }}
-          animate={isMobile ? { y: 0, opacity: 1 } : { x: 0, opacity: 1 }}
-          exit={isMobile ? { y: '100%', opacity: 0 } : { x: '100%', opacity: 0 }}
-          transition={{ type: 'spring', damping: 20, stiffness: 100 }}
-          className="overlay-panel"
+          initial={isMobile ? { y: '100%' } : { x: '100%', opacity: 0 }}
+          animate={isMobile ? { y: 0 } : { x: 0, opacity: 1 }}
+          exit={isMobile ? { y: '100%' } : { x: '100%', opacity: 0 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+          drag={isMobile ? "y" : false}
+          dragConstraints={{ top: 0, bottom: 0 }}
+          dragElastic={{ top: 0, bottom: 0.5 }}
+          onDragEnd={(_, info) => {
+            if (info.offset.y > 100) {
+              handleClose()
+            }
+          }}
+          className={`overlay-panel ${isMobile ? 'bottom-sheet' : ''}`}
         >
-          <button className="close-btn" onClick={() => setActiveNode(null)}>✕</button>
+          {isMobile && (
+            <div className="drag-handle" />
+          )}
+          
+          <button className="close-btn" onClick={handleClose}>✕</button>
           
           <div className="overlay-header">
             <span className={`tag type-${activeNode.type}`}>
@@ -46,33 +77,35 @@ export default function Overlay({ activeNode, setActiveNode }) {
           
           {!isMobile && <MiniMap lat={activeNode.lat} lng={activeNode.lng} />}
 
-          {causes.length > 0 && (
-            <div className="relations">
-              <h3>Root Causes / Influences</h3>
-              <div className="chain-links">
-                {causes.map(c => (
-                  <button key={c.id} className="chain-btn" onClick={() => setActiveNode(c)}>
-                    ← {c.title}
-                  </button>
-                ))}
+          <div className="overlay-content-scroll">
+            {causes.length > 0 && (
+              <div className="relations">
+                <h3>Root Causes / Influences</h3>
+                <div className="chain-links">
+                  {causes.map(c => (
+                    <button key={c.id} className="chain-btn" onClick={() => handleLinkClick(c)}>
+                      ← {c.title}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {consequences.length > 0 && (
-            <div className="relations">
-              <h3>Consequences / Influenced</h3>
-              <div className="chain-links">
-                {consequences.map(c => (
-                  <button key={c.id} className="chain-btn" onClick={() => setActiveNode(c)}>
-                    {c.title} →
-                  </button>
-                ))}
+            {consequences.length > 0 && (
+              <div className="relations">
+                <h3>Consequences / Influenced</h3>
+                <div className="chain-links">
+                  {consequences.map(c => (
+                    <button key={c.id} className="chain-btn" onClick={() => handleLinkClick(c)}>
+                      {c.title} →
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {isMobile && <MiniMap lat={activeNode.lat} lng={activeNode.lng} />}
+            {isMobile && <MiniMap lat={activeNode.lat} lng={activeNode.lng} />}
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
