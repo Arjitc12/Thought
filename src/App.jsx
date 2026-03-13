@@ -20,6 +20,18 @@ export default function App() {
     setActiveNode(node)
   }
 
+  // Global Escape key handler to reset all states
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setActiveNode(null)
+        setSearchData(null)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
+
   return (
     <div className="app-container">
       <div className="canvas-wrapper">
