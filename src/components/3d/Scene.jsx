@@ -130,7 +130,11 @@ export default function Scene({ activeNode, setActiveNode, searchData }) {
       
       <CameraController activeNode={activeNode} searchData={searchData} />
 
-      <SolarSystemGroup activeEdgesWithNodes={activeEdgesWithNodes} setActiveNode={setActiveNode} />
+      <SolarSystemGroup 
+        activeEdgesWithNodes={activeEdgesWithNodes} 
+        setActiveNode={setActiveNode} 
+        activeNode={activeNode}
+      />
     </Canvas>
   )
 }
@@ -185,17 +189,23 @@ function OrbitRings({ eras }) {
   );
 }
 
-function SolarSystemGroup({ activeEdgesWithNodes, setActiveNode }) {
+function SolarSystemGroup({ activeEdgesWithNodes, setActiveNode, activeNode }) {
   return (
     <group>
       <OrbitRings eras={dataset.eras} />
-      {dataset.nodes.map(node => (
-        <Node 
-          key={node.id} 
-          data={node} 
-          onClickNode={setActiveNode} 
-        />
-      ))}
+      {dataset.nodes.map(node => {
+        const isActive = activeNode?.id === node.id;
+        const isBbGlowFallback = !activeNode && node.id === 'bb';
+        
+        return (
+          <Node 
+            key={node.id} 
+            data={node} 
+            onClickNode={setActiveNode} 
+            isGlowing={isActive || isBbGlowFallback}
+          />
+        );
+      })}
 
       {/* Only render edges if an active node is selected, revealing the isolated chain */}
       {activeEdgesWithNodes.map((edge, i) => (

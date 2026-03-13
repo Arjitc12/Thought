@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import { Text, Html } from '@react-three/drei'
 import * as THREE from 'three'
 
-export default function Node({ data, onClickNode }) {
+export default function Node({ data, onClickNode, isGlowing }) {
   const groupRef = useRef()
   const textRef = useRef()
   const subTextRef = useRef()
@@ -76,7 +76,7 @@ export default function Node({ data, onClickNode }) {
         <meshStandardMaterial 
           color={color} 
           emissive={color} 
-          emissiveIntensity={hovered ? 2 : 1}
+          emissiveIntensity={hovered ? 3 : (isGlowing ? 2 : 0.5)}
           toneMapped={false}
         />
       </mesh>
