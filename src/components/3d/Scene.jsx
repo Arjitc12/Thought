@@ -6,7 +6,7 @@ import Node from './Node'
 import Edge from './Edge'
 import { dataset } from '../../data/dataset'
 
-function CameraController({ activeNode, searchData }) {
+function CameraController({ activeNode, searchData, activeEdgesWithNodes }) {
   const { camera, controls } = useThree()
   const vec = new THREE.Vector3()
   const targetVec = new THREE.Vector3()
@@ -26,16 +26,46 @@ function CameraController({ activeNode, searchData }) {
     if (!controls) return
 
     if (activeNode) {
-      const nodePos = new THREE.Vector3(activeNode.position[0], activeNode.position[1], activeNode.position[2])
+      // Collect all points we want to frame
+      const points = [new THREE.Vector3(...activeNode.position)]
       
+      // If we have active edges, add the other side of those connections
+      if (activeEdgesWithNodes && activeEdgesWithNodes.length > 0) {
+        activeEdgesWithNodes.forEach(edge => {
+          if (edge.sourceNode) points.push(new THREE.Vector3(...edge.sourceNode.position))
+          if (edge.targetNode) points.push(new THREE.Vector3(...edge.targetNode.position))
+        })
+      }
+
+      // Calculate the center point of all these nodes
+      const center = new THREE.Vector3()
+      points.forEach(p => center.add(p))
+      center.divideScalar(points.length)
+      
+      targetVec.copy(center)
+
+      // Calculate how far back we need to be to see all points
+      // We'll find the point furthest from the center
+      let maxRadius = 0
+      points.forEach(p => {
+        const d = p.distanceTo(center)
+        if (d > maxRadius) maxRadius = d
+      })
+
+      // Adjust camera position based on the spread of nodes
+      // If points are clustered (maxRadius small), we zoom in move. 
+      // If spread out, we pull back.
+      const zoomFactor = Math.max(30, maxRadius * 2.5) 
+      
+      const nodePos = new THREE.Vector3(...activeNode.position)
       if (nodePos.length() < 0.1) {
-        vec.set(0, 10, 25)
+        // Fallback for nodes at the very center (Big Bang)
+        vec.set(0, 15, 40)
       } else {
         const outwardDir = nodePos.clone().normalize()
-        vec.copy(nodePos).add(outwardDir.multiplyScalar(30))
-        vec.y += 15 
+        vec.copy(center).add(outwardDir.multiplyScalar(zoomFactor))
+        vec.y += zoomFactor * 0.4
       }
-      targetVec.copy(nodePos)
 
     } else if (searchData) {
       const angle = Math.atan2(searchData.position[2], searchData.position[0])
@@ -54,12 +84,10 @@ function CameraController({ activeNode, searchData }) {
     }
 
     // Only force the camera if we are in an active "flight" to a new node.
-    // Once we arrive, we shut off the override so the user can easily scroll, zoom, and pan around the node with their mouse.
     if (animatingRef.current) {
       camera.position.lerp(vec, 0.04)
       controls.target.lerp(targetVec, 0.04)
       
-      // If we are extremely close to the intended destination, shut off the autopilot.
       if (camera.position.distanceTo(vec) < 1.0) {
         animatingRef.current = false
       }
@@ -128,7 +156,11 @@ export default function Scene({ activeNode, setActiveNode, searchData }) {
       
       <OrbitControls makeDefault enableDamping dampingFactor={0.05} />
       
-      <CameraController activeNode={activeNode} searchData={searchData} />
+      <CameraController 
+        activeNode={activeNode} 
+        searchData={searchData} 
+        activeEdgesWithNodes={activeEdgesWithNodes} 
+      />
 
       <SolarSystemGroup 
         activeEdgesWithNodes={activeEdgesWithNodes} 
