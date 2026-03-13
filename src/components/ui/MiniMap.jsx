@@ -14,7 +14,7 @@ export default function MiniMap({ lat, lng }) {
     <div className="mini-map-container">
       <div className="map-title">Geographic Origin</div>
       <div className="map-wrapper">
-        <img src="/world-map.svg" alt="World Map" className="world-svg" />
+        <img src={`${import.meta.env.BASE_URL}world-map.svg`} alt="World Map" className="world-svg" />
         
         {lat !== undefined && lng !== undefined && (
           <div 
