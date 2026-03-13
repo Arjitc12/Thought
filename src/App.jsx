@@ -55,7 +55,22 @@ export default function App() {
         <p>Explore the timeline, search a year, or click a glowing node.</p>
         <button 
           className="start-journey-btn" 
-          onClick={() => handleNodeSelect(dataset.nodes.find(n => n.id === 'bb'))}>
+          onClick={() => {
+            const bbNode = dataset.nodes.find(n => n.id === 'bb');
+            handleNodeSelect(bbNode);
+            
+            // Request fullscreen on mobile
+            if (window.innerWidth <= 768) {
+              const elem = document.documentElement;
+              if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+              } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+              } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+              }
+            }
+          }}>
           ▶ Start Journey
         </button>
       </div>
