@@ -34,32 +34,31 @@ function CameraController({ activeNode, searchData, activeEdgesWithNodes }) {
   useFrame(() => {
     if (!controls) return
 
+    // Global navigation means we always rotate and zoom relative to the center
+    targetVec.set(0, 0, 0)
+
     if (activeNode) {
       const nodePos = new THREE.Vector3(...activeNode.position)
       
       if (nodePos.length() < 0.1) {
+        // Fallback for Big Bang
         vec.set(0, 15, 40)
       } else {
+        // Position camera behind the node along the ray from origin
+        // This keeps the node centered in view even though we look at [0,0,0]
         const outwardDir = nodePos.clone().normalize()
         vec.copy(nodePos).add(outwardDir.multiplyScalar(30))
-        vec.y += 15 
+        vec.y += 10 // Slight elevation for better perspective
       }
-      targetVec.copy(nodePos)
 
     } else if (searchData) {
-      const angle = Math.atan2(searchData.position[2], searchData.position[0])
-      const dist = searchData.orbitRadius + 60
-      
-      vec.set(
-        Math.cos(angle) * dist,
-        searchData.position[1] + 40,
-        Math.sin(angle) * dist
-      )
-      targetVec.set(searchData.position[0], searchData.position[1], searchData.position[2])
+      const searchPos = new THREE.Vector3(...searchData.position)
+      const outwardDir = searchPos.clone().normalize()
+      vec.copy(searchPos).add(outwardDir.multiplyScalar(60))
+      vec.y += 20
 
     } else {
         vec.set(0, 50, 150)
-        targetVec.set(0, 0, 0)
     }
 
     // Only force the camera if we are in an active "flight" to a new node.
