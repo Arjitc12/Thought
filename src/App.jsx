@@ -53,26 +53,34 @@ export default function App() {
       <div className="title-layer">
         <h1>Timeline Causality Map</h1>
         <p>Explore the timeline, search a year, or click a glowing node.</p>
-        <button 
-          className="start-journey-btn" 
-          onClick={() => {
-            const bbNode = dataset.nodes.find(n => n.id === 'bb');
-            handleNodeSelect(bbNode);
-            
-            // Request fullscreen on mobile
-            if (window.innerWidth <= 768) {
-              const elem = document.documentElement;
-              if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-              } else if (elem.webkitRequestFullscreen) {
-                elem.webkitRequestFullscreen();
-              } else if (elem.msRequestFullscreen) {
-                elem.msRequestFullscreen();
+        <div className="button-group">
+          <button 
+            className="start-journey-btn" 
+            onClick={() => {
+              const bbNode = dataset.nodes.find(n => n.id === 'bb');
+              handleNodeSelect(bbNode);
+              
+              // Request fullscreen on mobile
+              if (window.innerWidth <= 768) {
+                const elem = document.documentElement;
+                if (elem.requestFullscreen) {
+                  elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                  elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                  elem.msRequestFullscreen();
+                }
               }
-            }
-          }}>
-          ▶ Start Journey
-        </button>
+            }}>
+            ▶ Start Journey
+          </button>
+          
+          {(activeNode || searchData) && (
+            <button className="reset-btn" onClick={() => { setActiveNode(null); setSearchData(null); }}>
+              ↺ Reset View
+            </button>
+          )}
+        </div>
       </div>
     </div>
   )

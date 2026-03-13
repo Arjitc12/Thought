@@ -44,7 +44,7 @@ export default function Overlay({ activeNode, setActiveNode }) {
           <h2>{activeNode.title}</h2>
           <p className="description">{activeNode.description}</p>
           
-          <MiniMap lat={activeNode.lat} lng={activeNode.lng} />
+          {!isMobile && <MiniMap lat={activeNode.lat} lng={activeNode.lng} />}
 
           {causes.length > 0 && (
             <div className="relations">
@@ -71,6 +71,8 @@ export default function Overlay({ activeNode, setActiveNode }) {
               </div>
             </div>
           )}
+
+          {isMobile && <MiniMap lat={activeNode.lat} lng={activeNode.lng} />}
         </motion.div>
       )}
     </AnimatePresence>
