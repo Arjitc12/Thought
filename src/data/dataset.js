@@ -27,9 +27,9 @@ export const dataset = {
         0,
         0
       ],
-      "orbitRadius": 0,
+      "orbitRadius": 2,
       "orbitAngle": 3.975,
-      "orbitSpeed": 0,
+      "orbitSpeed": 0.05,
       "lat": 0,
       "lng": 0,
       "description": "Hydrogen gas collapses to form the first luminous bodies."
@@ -44,9 +44,9 @@ export const dataset = {
         0,
         0
       ],
-      "orbitRadius": 0,
+      "orbitRadius": 4,
       "orbitAngle": 1.677,
-      "orbitSpeed": 0,
+      "orbitSpeed": 0.05,
       "lat": 0,
       "lng": 0,
       "description": "The Solar System coalesces, and Earth is formed."
@@ -61,9 +61,9 @@ export const dataset = {
         0,
         0
       ],
-      "orbitRadius": 0,
+      "orbitRadius": 6,
       "orbitAngle": 0.086,
-      "orbitSpeed": 0,
+      "orbitSpeed": 0.05,
       "lat": 0,
       "lng": 0,
       "description": "Single-celled organisms emerge in primordial oceans."
@@ -78,9 +78,9 @@ export const dataset = {
         0,
         0
       ],
-      "orbitRadius": 0,
+      "orbitRadius": 8,
       "orbitAngle": 2.741,
-      "orbitSpeed": 0,
+      "orbitSpeed": 0.05,
       "lat": 0,
       "lng": 0,
       "description": "The sun is a deadly laser, until there's a blanket."
@@ -95,9 +95,9 @@ export const dataset = {
         0,
         0
       ],
-      "orbitRadius": 0,
+      "orbitRadius": 10,
       "orbitAngle": 3.27,
-      "orbitSpeed": 0,
+      "orbitSpeed": 0.05,
       "lat": 0,
       "lng": 0,
       "description": "It's a sponge... it's a plant... it's a worm... wow, that's animals and stuff."
@@ -112,9 +112,9 @@ export const dataset = {
         0,
         0
       ],
-      "orbitRadius": 0,
+      "orbitRadius": 12,
       "orbitAngle": 3.253,
-      "orbitSpeed": 0,
+      "orbitSpeed": 0.05,
       "lat": 0,
       "lng": 0,
       "description": "Oh yeah, and dinosaurs."
@@ -129,9 +129,9 @@ export const dataset = {
         0,
         0
       ],
-      "orbitRadius": 0,
+      "orbitRadius": 14,
       "orbitAngle": 5.853,
-      "orbitSpeed": 0,
+      "orbitSpeed": 0.05,
       "lat": 21.2,
       "lng": -89.5,
       "description": "Mass extinction. Goodbye dinosaurs, hello mammals."
@@ -146,9 +146,9 @@ export const dataset = {
         0,
         0
       ],
-      "orbitRadius": 0,
+      "orbitRadius": 16,
       "orbitAngle": 5.426,
-      "orbitSpeed": 0,
+      "orbitSpeed": 0.05,
       "lat": 0,
       "lng": 0,
       "description": "It's an ice age. You can walk to new places."
@@ -163,9 +163,9 @@ export const dataset = {
         0,
         0
       ],
-      "orbitRadius": 0,
+      "orbitRadius": 20,
       "orbitAngle": 3.506,
-      "orbitSpeed": 0,
+      "orbitSpeed": 0.05,
       "lat": 0,
       "lng": 30,
       "description": "Anatomically modern humans evolve in Africa."
@@ -180,9 +180,9 @@ export const dataset = {
         0,
         0
       ],
-      "orbitRadius": 0,
+      "orbitRadius": 18,
       "orbitAngle": 0.95,
-      "orbitSpeed": 0,
+      "orbitSpeed": 0.05,
       "lat": 0,
       "lng": 30,
       "description": "Hominids harness fire for warmth and cooking."
@@ -197,7 +197,7 @@ export const dataset = {
         -1.7,
         -17.3
       ],
-      "orbitRadius": 17.3,
+      "orbitRadius": 22,
       "orbitAngle": 4.71,
       "orbitSpeed": 0.05,
       "lat": 33,
