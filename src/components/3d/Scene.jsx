@@ -122,6 +122,7 @@ export default function Scene({ activeNode, setActiveNode, searchData }) {
       const targetNode = dataset.nodes.find(n => n.id === edge.target)
       return { ...edge, sourceNode, targetNode }
     }).filter(e => e.sourceNode && e.targetNode)
+  }
   // Calculate the set of active node IDs (the causal chain)
   const activeNodeIds = new Set()
   if (activeNode) {
