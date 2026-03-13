@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import { Text, Html } from '@react-three/drei'
 import * as THREE from 'three'
 
-export default function Node({ data, onClickNode, isGlowing }) {
+export default function Node({ data, onClickNode, isGlowing, isLabelVisible }) {
   const groupRef = useRef()
   const textRef = useRef()
   const subTextRef = useRef()
@@ -44,6 +44,13 @@ export default function Node({ data, onClickNode, isGlowing }) {
         // Push text higher dynamically so it clears the sphere 
         textRef.current.position.y = 0.5 * scale
         subTextRef.current.position.y = 0.25 * scale
+
+        // Handle text opacity for selected states
+        const targetOpacity = isLabelVisible ? 1 : 0
+        textRef.current.fillOpacity = THREE.MathUtils.lerp(textRef.current.fillOpacity || 0, targetOpacity, 0.1)
+        textRef.current.outlineOpacity = THREE.MathUtils.lerp(textRef.current.outlineOpacity || 0, targetOpacity, 0.1)
+        subTextRef.current.fillOpacity = THREE.MathUtils.lerp(subTextRef.current.fillOpacity || 0, targetOpacity, 0.1)
+        subTextRef.current.outlineOpacity = THREE.MathUtils.lerp(subTextRef.current.outlineOpacity || 0, targetOpacity, 0.1)
       }
     }
   })
@@ -78,6 +85,8 @@ export default function Node({ data, onClickNode, isGlowing }) {
           emissive={color} 
           emissiveIntensity={hovered ? 3 : (isGlowing ? 2 : 0.5)}
           toneMapped={false}
+          transparent={true}
+          opacity={isLabelVisible ? 1 : 0.3} // Dim nodes not in the chain
         />
       </mesh>
 
@@ -90,6 +99,7 @@ export default function Node({ data, onClickNode, isGlowing }) {
         anchorY="middle"
         outlineWidth={0.02}
         outlineColor="black"
+        transparent
       >
         {data.title}
       </Text>
@@ -103,6 +113,7 @@ export default function Node({ data, onClickNode, isGlowing }) {
         anchorY="middle"
         outlineWidth={0.01}
         outlineColor="black"
+        transparent
       >
         {data.date > 0 ? `${data.date} AD` : `${Math.abs(data.date)} BC`}
       </Text>

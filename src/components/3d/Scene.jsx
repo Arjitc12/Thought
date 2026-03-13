@@ -122,6 +122,14 @@ export default function Scene({ activeNode, setActiveNode, searchData }) {
       const targetNode = dataset.nodes.find(n => n.id === edge.target)
       return { ...edge, sourceNode, targetNode }
     }).filter(e => e.sourceNode && e.targetNode)
+  // Calculate the set of active node IDs (the causal chain)
+  const activeNodeIds = new Set()
+  if (activeNode) {
+    activeNodeIds.add(activeNode.id)
+    activeEdgesWithNodes.forEach(edge => {
+      activeNodeIds.add(edge.source)
+      activeNodeIds.add(edge.target)
+    })
   }
 
   return (
@@ -144,6 +152,7 @@ export default function Scene({ activeNode, setActiveNode, searchData }) {
         activeEdgesWithNodes={activeEdgesWithNodes} 
         setActiveNode={setActiveNode} 
         activeNode={activeNode}
+        activeNodeIds={activeNodeIds}
       />
     </Canvas>
   )
@@ -199,7 +208,7 @@ function OrbitRings({ eras }) {
   );
 }
 
-function SolarSystemGroup({ activeEdgesWithNodes, setActiveNode, activeNode }) {
+function SolarSystemGroup({ activeEdgesWithNodes, setActiveNode, activeNode, activeNodeIds }) {
   return (
     <group>
       <OrbitRings eras={dataset.eras} />
@@ -207,12 +216,17 @@ function SolarSystemGroup({ activeEdgesWithNodes, setActiveNode, activeNode }) {
         const isActive = activeNode?.id === node.id;
         const isBbGlowFallback = !activeNode && node.id === 'bb';
         
+        // A node's label is visible if no node is selected, 
+        // OR if it's the active node, or part of its causal chain
+        const isLabelVisible = !activeNode || activeNodeIds.has(node.id);
+
         return (
           <Node 
             key={node.id} 
             data={node} 
             onClickNode={setActiveNode} 
             isGlowing={isActive || isBbGlowFallback}
+            isLabelVisible={isLabelVisible}
           />
         );
       })}
