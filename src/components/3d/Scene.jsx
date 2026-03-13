@@ -22,50 +22,29 @@ function CameraController({ activeNode, searchData, activeEdgesWithNodes }) {
     }
   }, [activeNode, searchData])
 
+  useEffect(() => {
+    if (!controls) return
+    const handleStart = () => {
+      animatingRef.current = false
+    }
+    controls.addEventListener('start', handleStart)
+    return () => controls.removeEventListener('start', handleStart)
+  }, [controls])
+
   useFrame(() => {
     if (!controls) return
 
     if (activeNode) {
-      // Collect all points we want to frame
-      const points = [new THREE.Vector3(...activeNode.position)]
-      
-      // If we have active edges, add the other side of those connections
-      if (activeEdgesWithNodes && activeEdgesWithNodes.length > 0) {
-        activeEdgesWithNodes.forEach(edge => {
-          if (edge.sourceNode) points.push(new THREE.Vector3(...edge.sourceNode.position))
-          if (edge.targetNode) points.push(new THREE.Vector3(...edge.targetNode.position))
-        })
-      }
-
-      // Calculate the center point of all these nodes
-      const center = new THREE.Vector3()
-      points.forEach(p => center.add(p))
-      center.divideScalar(points.length)
-      
-      targetVec.copy(center)
-
-      // Calculate how far back we need to be to see all points
-      // We'll find the point furthest from the center
-      let maxRadius = 0
-      points.forEach(p => {
-        const d = p.distanceTo(center)
-        if (d > maxRadius) maxRadius = d
-      })
-
-      // Adjust camera position based on the spread of nodes
-      // If points are clustered (maxRadius small), we zoom in move. 
-      // If spread out, we pull back.
-      const zoomFactor = Math.max(30, maxRadius * 2.5) 
-      
       const nodePos = new THREE.Vector3(...activeNode.position)
+      
       if (nodePos.length() < 0.1) {
-        // Fallback for nodes at the very center (Big Bang)
         vec.set(0, 15, 40)
       } else {
         const outwardDir = nodePos.clone().normalize()
-        vec.copy(center).add(outwardDir.multiplyScalar(zoomFactor))
-        vec.y += zoomFactor * 0.4
+        vec.copy(nodePos).add(outwardDir.multiplyScalar(30))
+        vec.y += 15 
       }
+      targetVec.copy(nodePos)
 
     } else if (searchData) {
       const angle = Math.atan2(searchData.position[2], searchData.position[0])
