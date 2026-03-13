@@ -4,12 +4,14 @@ import { motion, AnimatePresence } from 'framer-motion'
 export default function NewsOverlay({ newsData, onClose, onNodeSelect }) {
   if (!newsData || !newsData.events || newsData.events.length === 0) return null
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
+
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ y: '100%', opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: '100%', opacity: 0 }}
+        initial={isMobile ? { y: '100%', opacity: 0 } : { x: '-100%', opacity: 0 }}
+        animate={isMobile ? { y: 0, opacity: 1 } : { x: 0, opacity: 1 }}
+        exit={isMobile ? { y: '100%', opacity: 0 } : { x: '-100%', opacity: 0 }}
         transition={{ type: 'spring', damping: 20, stiffness: 100 }}
         className="news-overlay"
       >

@@ -18,13 +18,15 @@ export default function Overlay({ activeNode, setActiveNode }) {
         .map(edge => dataset.nodes.find(n => n.id === edge.target))
     : []
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
+
   return (
     <AnimatePresence>
       {activeNode && (
         <motion.div
-          initial={{ x: '100%', opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: '100%', opacity: 0 }}
+          initial={isMobile ? { y: '100%', opacity: 0 } : { x: '100%', opacity: 0 }}
+          animate={isMobile ? { y: 0, opacity: 1 } : { x: 0, opacity: 1 }}
+          exit={isMobile ? { y: '100%', opacity: 0 } : { x: '100%', opacity: 0 }}
           transition={{ type: 'spring', damping: 20, stiffness: 100 }}
           className="overlay-panel"
         >
