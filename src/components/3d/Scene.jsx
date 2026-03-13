@@ -162,9 +162,13 @@ function OrbitRings({ eras }) {
             
             {/* The Label identifying the Era Ring */}
             <Text
-              position={[era.radiusBase, 0, 0]}
+              position={[
+                Math.cos(dataset.eras.indexOf(era)) * era.radiusBase,
+                0,
+                Math.sin(dataset.eras.indexOf(era)) * era.radiusBase
+              ]}
               // Scale the text slightly based on the radius so larger outer rings have bigger labels
-              fontSize={Math.max(1.5, era.radiusBase * 0.04)}
+              fontSize={Math.max(0.8, era.radiusBase * 0.02)}
               color="#88ccff"
               anchorX="center"
               anchorY="bottom"
