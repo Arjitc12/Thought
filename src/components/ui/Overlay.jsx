@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
 import { motion, AnimatePresence, useDragControls } from 'framer-motion'
-import { dataset } from '../../data/dataset'
 import MiniMap from './MiniMap'
 import { haptics } from '../../utils/haptics'
 
-export default function Overlay({ activeNode, setActiveNode }) {
+export default function Overlay({ activeNode, setActiveNode, dataset }) {
   const dragControls = useDragControls()
 
   // Find causes highlighting this node

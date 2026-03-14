@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import { dataset } from '../../data/dataset'
 import * as THREE from 'three'
 
-export default function DateSearch({ onSearch, onNodeSelect }) {
+export default function DateSearch({ onSearch, onNodeSelect, dataset }) {
   const [inputValue, setInputValue] = useState('')
 
   const handleSearch = (e) => {

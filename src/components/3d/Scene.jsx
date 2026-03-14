@@ -4,9 +4,8 @@ import { OrbitControls, Stars, Text } from '@react-three/drei'
 import * as THREE from 'three'
 import Node from './Node'
 import Edge from './Edge'
-import { dataset } from '../../data/dataset'
 
-function CameraController({ activeNode, searchData, activeEdgesWithNodes }) {
+function CameraController({ activeNode, searchData }) {
   const { camera, controls } = useThree()
   const vec = new THREE.Vector3()
   const targetVec = new THREE.Vector3()
@@ -85,7 +84,7 @@ function CameraController({ activeNode, searchData, activeEdgesWithNodes }) {
   return null
 }
 
-export default function Scene({ activeNode, setActiveNode, searchData }) {
+export default function Scene({ activeNode, setActiveNode, searchData, dataset }) {
   // If there's an active node, compute its entire causal chain (forward and backward)
   let activeEdgesWithNodes = []
   
@@ -152,10 +151,10 @@ export default function Scene({ activeNode, setActiveNode, searchData }) {
       <CameraController 
         activeNode={activeNode} 
         searchData={searchData} 
-        activeEdgesWithNodes={activeEdgesWithNodes} 
       />
 
       <SolarSystemGroup 
+        dataset={dataset}
         activeEdgesWithNodes={activeEdgesWithNodes} 
         setActiveNode={setActiveNode} 
         activeNode={activeNode}
@@ -165,14 +164,12 @@ export default function Scene({ activeNode, setActiveNode, searchData }) {
   )
 }
 
-
-
 function OrbitRings({ eras }) {
   if (!eras) return null;
 
   return (
     <group>
-      {eras.map((era) => {
+      {eras.map((era, index) => {
         if (era.radiusBase === 0) return null; // Skip Big Bang point
 
         // Generate points for a clean circle
@@ -193,9 +190,9 @@ function OrbitRings({ eras }) {
             {/* The Label identifying the Era Ring */}
             <Text
               position={[
-                Math.cos(dataset.eras.indexOf(era)) * era.radiusBase,
+                Math.cos(index) * era.radiusBase,
                 0,
-                Math.sin(dataset.eras.indexOf(era)) * era.radiusBase
+                Math.sin(index) * era.radiusBase
               ]}
               // Scale the text slightly based on the radius so larger outer rings have bigger labels
               fontSize={Math.max(0.8, era.radiusBase * 0.02)}
@@ -204,7 +201,6 @@ function OrbitRings({ eras }) {
               anchorY="bottom"
               outlineWidth={0.02}
               outlineColor="black"
-              // Billboard the text so it always faces the camera
             >
               {era.name} ({era.start > 0 ? era.start + ' AD' : Math.abs(era.start) + ' BC'})
             </Text>
@@ -215,7 +211,7 @@ function OrbitRings({ eras }) {
   );
 }
 
-function SolarSystemGroup({ activeEdgesWithNodes, setActiveNode, activeNode, activeNodeIds }) {
+function SolarSystemGroup({ dataset, activeEdgesWithNodes, setActiveNode, activeNode, activeNodeIds }) {
   return (
     <group>
       <OrbitRings eras={dataset.eras} />
