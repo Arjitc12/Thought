@@ -5,11 +5,7 @@ export const dataset = {
       "title": "The Big Bang",
       "date": -13800000000,
       "type": "event",
-      "position": [
-        0,
-        0,
-        0
-      ],
+      "position": [0, 0, 0],
       "orbitRadius": 0,
       "orbitAngle": 2.796,
       "orbitSpeed": 0,
@@ -22,11 +18,7 @@ export const dataset = {
       "title": "First Stars Form",
       "date": -13600000000,
       "type": "event",
-      "position": [
-        0,
-        0,
-        0
-      ],
+      "position": [0, 0, 0],
       "orbitRadius": 2,
       "orbitAngle": 3.975,
       "orbitSpeed": 0.05,
@@ -39,11 +31,7 @@ export const dataset = {
       "title": "Formation of Earth",
       "date": -4500000000,
       "type": "event",
-      "position": [
-        0,
-        0,
-        0
-      ],
+      "position": [0, 0, 0],
       "orbitRadius": 4,
       "orbitAngle": 1.677,
       "orbitSpeed": 0.05,
@@ -56,11 +44,7 @@ export const dataset = {
       "title": "First Life",
       "date": -3800000000,
       "type": "event",
-      "position": [
-        0,
-        0,
-        0
-      ],
+      "position": [0, 0, 0],
       "orbitRadius": 6,
       "orbitAngle": 0.086,
       "orbitSpeed": 0.05,
@@ -73,11 +57,7 @@ export const dataset = {
       "title": "Ozone Layer Forms",
       "date": -600000000,
       "type": "event",
-      "position": [
-        0,
-        0,
-        0
-      ],
+      "position": [0, 0, 0],
       "orbitRadius": 8,
       "orbitAngle": 2.741,
       "orbitSpeed": 0.05,
@@ -90,11 +70,7 @@ export const dataset = {
       "title": "Cambrian Explosion",
       "date": -541000000,
       "type": "event",
-      "position": [
-        0,
-        0,
-        0
-      ],
+      "position": [0, 0, 0],
       "orbitRadius": 10,
       "orbitAngle": 3.27,
       "orbitSpeed": 0.05,
@@ -107,11 +83,7 @@ export const dataset = {
       "title": "Dinosaurs",
       "date": -240000000,
       "type": "event",
-      "position": [
-        0,
-        0,
-        0
-      ],
+      "position": [0, 0, 0],
       "orbitRadius": 12,
       "orbitAngle": 3.253,
       "orbitSpeed": 0.05,
@@ -124,11 +96,7 @@ export const dataset = {
       "title": "Asteroid Impact",
       "date": -66000000,
       "type": "event",
-      "position": [
-        0,
-        0,
-        0
-      ],
+      "position": [0, 0, 0],
       "orbitRadius": 14,
       "orbitAngle": 5.853,
       "orbitSpeed": 0.05,
@@ -141,11 +109,7 @@ export const dataset = {
       "title": "Ice Age",
       "date": -2500000,
       "type": "event",
-      "position": [
-        0,
-        0,
-        0
-      ],
+      "position": [0, 0, 0],
       "orbitRadius": 16,
       "orbitAngle": 5.426,
       "orbitSpeed": 0.05,
@@ -154,15 +118,24 @@ export const dataset = {
       "description": "It's an ice age. You can walk to new places."
     },
     {
+      "id": "fire",
+      "title": "Control of Fire",
+      "date": -1000000,
+      "type": "event",
+      "position": [0, 0, 0],
+      "orbitRadius": 18,
+      "orbitAngle": 0.95,
+      "orbitSpeed": 0.05,
+      "lat": 0,
+      "lng": 30,
+      "description": "Hominids (Homo erectus) harness fire for warmth and cooking — predating anatomically modern humans by 700,000 years."
+    },
+    {
       "id": "homo",
       "title": "Homo Sapiens",
       "date": -300000,
       "type": "person",
-      "position": [
-        0,
-        0,
-        0
-      ],
+      "position": [0, 0, 0],
       "orbitRadius": 20,
       "orbitAngle": 3.506,
       "orbitSpeed": 0.05,
@@ -171,32 +144,11 @@ export const dataset = {
       "description": "Anatomically modern humans evolve in Africa."
     },
     {
-      "id": "fire",
-      "title": "Control of Fire",
-      "date": -1000000,
-      "type": "event",
-      "position": [
-        0,
-        0,
-        0
-      ],
-      "orbitRadius": 18,
-      "orbitAngle": 0.95,
-      "orbitSpeed": 0.05,
-      "lat": 0,
-      "lng": 30,
-      "description": "Hominids harness fire for warmth and cooking."
-    },
-    {
       "id": "agri",
       "title": "Agricultural Revolution",
       "date": -10000,
       "type": "thought",
-      "position": [
-        0,
-        -1.7,
-        -17.3
-      ],
+      "position": [0, -1.7, -17.3],
       "orbitRadius": 22,
       "orbitAngle": 4.71,
       "orbitSpeed": 0.05,
@@ -209,11 +161,7 @@ export const dataset = {
       "title": "Ancient Egypt",
       "date": -3100,
       "type": "event",
-      "position": [
-        3.4,
-        -0.8,
-        17.8
-      ],
+      "position": [3.4, -0.8, 17.8],
       "orbitRadius": 18.1,
       "orbitAngle": 1.383,
       "orbitSpeed": 0.05,
@@ -226,11 +174,7 @@ export const dataset = {
       "title": "Indus Valley",
       "date": -2500,
       "type": "event",
-      "position": [
-        -22.7,
-        -0.6,
-        -22.7
-      ],
+      "position": [-22.7, -0.6, -22.7],
       "orbitRadius": 32.1,
       "orbitAngle": 3.927,
       "orbitSpeed": 0.1,
@@ -243,11 +187,7 @@ export const dataset = {
       "title": "Epic of Gilgamesh",
       "date": -2100,
       "type": "thought",
-      "position": [
-        -33.3,
-        -2.2,
-        15.2
-      ],
+      "position": [-33.3, -2.2, 15.2],
       "orbitRadius": 36.6,
       "orbitAngle": 2.712,
       "orbitSpeed": 0.1,
@@ -260,11 +200,7 @@ export const dataset = {
       "title": "Code of Hammurabi",
       "date": -1750,
       "type": "thought",
-      "position": [
-        -25.7,
-        -2.1,
-        -22.5
-      ],
+      "position": [-25.7, -2.1, -22.5],
       "orbitRadius": 34.2,
       "orbitAngle": 3.861,
       "orbitSpeed": 0.1,
@@ -277,11 +213,7 @@ export const dataset = {
       "title": "Vedas Written",
       "date": -1500,
       "type": "thought",
-      "position": [
-        32.8,
-        -0.1,
-        21
-      ],
+      "position": [32.8, -0.1, 21],
       "orbitRadius": 39,
       "orbitAngle": 0.57,
       "orbitSpeed": 0.1,
@@ -290,15 +222,24 @@ export const dataset = {
       "description": "Foundational texts of Hinduism in ancient India."
     },
     {
+      "id": "homer",
+      "title": "Homer",
+      "date": -800,
+      "type": "thought",
+      "position": [27.9, -0.6, -17.8],
+      "orbitRadius": 33.1,
+      "orbitAngle": 5.715,
+      "orbitSpeed": 0.1,
+      "lat": 37.9,
+      "lng": 23.7,
+      "description": "The Iliad and Odyssey are codified, shaping Greek culture."
+    },
+    {
       "id": "budd",
       "title": "Buddha",
-      "date": -500,
+      "date": -563,
       "type": "person",
-      "position": [
-        35.3,
-        -2.8,
-        1.9
-      ],
+      "position": [35.3, -2.8, 1.9],
       "orbitRadius": 35.4,
       "orbitAngle": 0.053,
       "orbitSpeed": 0.1,
@@ -309,13 +250,9 @@ export const dataset = {
     {
       "id": "conf",
       "title": "Confucius",
-      "date": -500,
+      "date": -551,
       "type": "person",
-      "position": [
-        37.9,
-        -1.2,
-        9.1
-      ],
+      "position": [37.9, -1.2, 9.1],
       "orbitRadius": 39,
       "orbitAngle": 0.237,
       "orbitSpeed": 0.1,
@@ -328,11 +265,7 @@ export const dataset = {
       "title": "Laozi",
       "date": -500,
       "type": "person",
-      "position": [
-        -4.3,
-        -1.9,
-        36.8
-      ],
+      "position": [-4.3, -1.9, 36.8],
       "orbitRadius": 37.1,
       "orbitAngle": 1.688,
       "orbitSpeed": 0.1,
@@ -345,11 +278,7 @@ export const dataset = {
       "title": "Sun Tzu",
       "date": -500,
       "type": "person",
-      "position": [
-        -11.7,
-        -0.6,
-        -36.1
-      ],
+      "position": [-11.7, -0.6, -36.1],
       "orbitRadius": 38,
       "orbitAngle": 4.399,
       "orbitSpeed": 0.1,
@@ -358,49 +287,11 @@ export const dataset = {
       "description": "Writes The Art of War, foundational military strategy."
     },
     {
-      "id": "qin",
-      "title": "Qin Shi Huang",
-      "date": -221,
-      "type": "person",
-      "position": [
-        -24.9,
-        -2.8,
-        -25.2
-      ],
-      "orbitRadius": 35.4,
-      "orbitAngle": 3.933,
-      "orbitSpeed": 0.1,
-      "lat": 34.2,
-      "lng": 108.9,
-      "description": "First Emperor of China, starts Great Wall."
-    },
-    {
-      "id": "homer",
-      "title": "Homer",
-      "date": -800,
-      "type": "thought",
-      "position": [
-        27.9,
-        -0.6,
-        -17.8
-      ],
-      "orbitRadius": 33.1,
-      "orbitAngle": 5.715,
-      "orbitSpeed": 0.1,
-      "lat": 37.9,
-      "lng": 23.7,
-      "description": "The Iliad and Odyssey are codified, shaping Greek culture."
-    },
-    {
       "id": "herac",
       "title": "Heraclitus",
       "date": -500,
       "type": "person",
-      "position": [
-        2.8,
-        1.6,
-        -38.3
-      ],
+      "position": [2.8, 1.6, -38.3],
       "orbitRadius": 38.4,
       "orbitAngle": 4.786,
       "orbitSpeed": 0.1,
@@ -413,11 +304,7 @@ export const dataset = {
       "title": "Parmenides",
       "date": -500,
       "type": "person",
-      "position": [
-        34.3,
-        1.5,
-        -4.8
-      ],
+      "position": [34.3, 1.5, -4.8],
       "orbitRadius": 34.7,
       "orbitAngle": 6.145,
       "orbitSpeed": 0.1,
@@ -428,13 +315,9 @@ export const dataset = {
     {
       "id": "pythag",
       "title": "Pythagoras",
-      "date": -500,
+      "date": -570,
       "type": "person",
-      "position": [
-        -22.1,
-        1.5,
-        -30.5
-      ],
+      "position": [-22.1, 1.5, -30.5],
       "orbitRadius": 37.7,
       "orbitAngle": 4.087,
       "orbitSpeed": 0.1,
@@ -447,11 +330,7 @@ export const dataset = {
       "title": "Persian Empire",
       "date": -550,
       "type": "event",
-      "position": [
-        -7.9,
-        1.6,
-        31.3
-      ],
+      "position": [-7.9, 1.6, 31.3],
       "orbitRadius": 32.3,
       "orbitAngle": 1.817,
       "orbitSpeed": 0.1,
@@ -464,11 +343,7 @@ export const dataset = {
       "title": "Socrates",
       "date": -470,
       "type": "person",
-      "position": [
-        3.4,
-        -1.4,
-        -34.5
-      ],
+      "position": [3.4, -1.4, -34.5],
       "orbitRadius": 34.6,
       "orbitAngle": 4.811,
       "orbitSpeed": 0.1,
@@ -481,11 +356,7 @@ export const dataset = {
       "title": "Plato",
       "date": -428,
       "type": "person",
-      "position": [
-        -24.8,
-        -0.2,
-        -27.8
-      ],
+      "position": [-24.8, -0.2, -27.8],
       "orbitRadius": 37.2,
       "orbitAngle": 3.985,
       "orbitSpeed": 0.1,
@@ -498,11 +369,7 @@ export const dataset = {
       "title": "Aristotle",
       "date": -384,
       "type": "person",
-      "position": [
-        28.3,
-        0.2,
-        -16.3
-      ],
+      "position": [28.3, 0.2, -16.3],
       "orbitRadius": 32.7,
       "orbitAngle": 5.763,
       "orbitSpeed": 0.1,
@@ -515,11 +382,7 @@ export const dataset = {
       "title": "Alexander the Great",
       "date": -356,
       "type": "person",
-      "position": [
-        22.5,
-        -2.7,
-        27.4
-      ],
+      "position": [22.5, -2.7, 27.4],
       "orbitRadius": 35.4,
       "orbitAngle": 0.883,
       "orbitSpeed": 0.1,
@@ -532,28 +395,20 @@ export const dataset = {
       "title": "Mauryan Empire",
       "date": -322,
       "type": "event",
-      "position": [
-        13.7,
-        0.5,
-        -34.9
-      ],
+      "position": [13.7, 0.5, -34.9],
       "orbitRadius": 37.5,
       "orbitAngle": 5.085,
       "orbitSpeed": 0.1,
       "lat": 25.6,
       "lng": 85.1,
-      "description": "Ashoka unifies most of the Indian subcontinent."
+      "description": "Ashoka unifies most of the Indian subcontinent and spreads Buddhism across Asia."
     },
     {
       "id": "epic",
       "title": "Epicurus",
       "date": -341,
       "type": "person",
-      "position": [
-        -22,
-        0.6,
-        -24.2
-      ],
+      "position": [-22, 0.6, -24.2],
       "orbitRadius": 32.7,
       "orbitAngle": 3.973,
       "orbitSpeed": 0.1,
@@ -566,11 +421,7 @@ export const dataset = {
       "title": "Zeno of Citium",
       "date": -334,
       "type": "person",
-      "position": [
-        -36.6,
-        -1.7,
-        -8.6
-      ],
+      "position": [-36.6, -1.7, -8.6],
       "orbitRadius": 37.6,
       "orbitAngle": 3.372,
       "orbitSpeed": 0.1,
@@ -579,1041 +430,17 @@ export const dataset = {
       "description": "Founder of Stoicism."
     },
     {
-      "id": "aug",
-      "title": "Augustus",
-      "date": -27,
+      "id": "qin",
+      "title": "Qin Shi Huang",
+      "date": -221,
       "type": "person",
-      "position": [
-        33.5,
-        -2.4,
-        6.5
-      ],
-      "orbitRadius": 34.1,
-      "orbitAngle": 0.192,
+      "position": [-24.9, -2.8, -25.2],
+      "orbitRadius": 35.4,
+      "orbitAngle": 3.933,
       "orbitSpeed": 0.1,
-      "lat": 41.9,
-      "lng": 12.5,
-      "description": "First Roman Emperor, starting the Pax Romana."
-    },
-    {
-      "id": "jesus",
-      "title": "Jesus of Nazareth",
-      "date": 30,
-      "type": "person",
-      "position": [
-        1.6,
-        2.3,
-        37.9
-      ],
-      "orbitRadius": 38,
-      "orbitAngle": 1.528,
-      "orbitSpeed": 0.1,
-      "lat": 31.7,
-      "lng": 35.2,
-      "description": "Crucifixion triggers the rise of Christianity."
-    },
-    {
-      "id": "epict",
-      "title": "Epictetus",
-      "date": 50,
-      "type": "person",
-      "position": [
-        -19,
-        1.3,
-        26.6
-      ],
-      "orbitRadius": 32.7,
-      "orbitAngle": 2.191,
-      "orbitSpeed": 0.1,
-      "lat": 37.9,
-      "lng": 27.3,
-      "description": "Stoic philosopher born into slavery."
-    },
-    {
-      "id": "marc",
-      "title": "Marcus Aurelius",
-      "date": 121,
-      "type": "person",
-      "position": [
-        -2.8,
-        -1.6,
-        38.1
-      ],
-      "orbitRadius": 38.2,
-      "orbitAngle": 1.645,
-      "orbitSpeed": 0.1,
-      "lat": 41.9,
-      "lng": 12.5,
-      "description": "The Philosopher King; author of 'Meditations'."
-    },
-    {
-      "id": "split",
-      "title": "Rome Splits",
-      "date": 285,
-      "type": "event",
-      "position": [
-        -23.7,
-        -2.4,
-        -25.4
-      ],
-      "orbitRadius": 34.8,
-      "orbitAngle": 3.962,
-      "orbitSpeed": 0.1,
-      "lat": 41,
-      "lng": 28.9,
-      "description": "The Roman Empire is long gone. But wait, it's not. It's just half gone."
-    },
-    {
-      "id": "fallrom",
-      "title": "Fall of Rome",
-      "date": 476,
-      "type": "event",
-      "position": [
-        53.3,
-        1.7,
-        -4.1
-      ],
-      "orbitRadius": 53.4,
-      "orbitAngle": 6.207,
-      "orbitSpeed": 0.15,
-      "lat": 41.9,
-      "lng": 12.5,
-      "description": "Western Roman Empire collapses."
-    },
-    {
-      "id": "augustine",
-      "title": "Augustine of Hippo",
-      "date": 354,
-      "type": "person",
-      "position": [
-        -31.1,
-        2.9,
-        -11.2
-      ],
-      "orbitRadius": 33,
-      "orbitAngle": 3.489,
-      "orbitSpeed": 0.1,
-      "lat": 36.9,
-      "lng": 7.7,
-      "description": "Marries Neoplatonism with Christian theology."
-    },
-    {
-      "id": "muh",
-      "title": "Prophet Muhammad",
-      "date": 610,
-      "type": "person",
-      "position": [
-        18.5,
-        -0.7,
-        54.2
-      ],
-      "orbitRadius": 57.2,
-      "orbitAngle": 1.242,
-      "orbitSpeed": 0.15,
-      "lat": 21.4,
-      "lng": 39.8,
-      "description": "Founds Islam, fundamentally altering global philosophy."
-    },
-    {
-      "id": "schism",
-      "title": "Great Schism",
-      "date": 1054,
-      "type": "event",
-      "position": [
-        -40.8,
-        -1.2,
-        -40.5
-      ],
-      "orbitRadius": 57.5,
-      "orbitAngle": 3.924,
-      "orbitSpeed": 0.15,
-      "lat": 41,
-      "lng": 28.9,
-      "description": "Christianity splits into Catholic and Orthodox blocks."
-    },
-    {
-      "id": "gold",
-      "title": "Islamic Golden Age",
-      "date": 790,
-      "type": "event",
-      "position": [
-        -23.9,
-        -2.8,
-        -46.1
-      ],
-      "orbitRadius": 51.9,
-      "orbitAngle": 4.234,
-      "orbitSpeed": 0.15,
-      "lat": 33.3,
-      "lng": 44.4,
-      "description": "House of Wisdom in Baghdad preserves and advances science."
-    },
-    {
-      "id": "avic",
-      "title": "Avicenna (Ibn Sina)",
-      "date": 980,
-      "type": "person",
-      "position": [
-        41,
-        -1.2,
-        -39.7
-      ],
-      "orbitRadius": 57.1,
-      "orbitAngle": 5.513,
-      "orbitSpeed": 0.15,
-      "lat": 40.3,
-      "lng": 63.4,
-      "description": "Polymath who profoundly influenced Islamic and Western philosophy."
-    },
-    {
-      "id": "aver",
-      "title": "Averroes (Ibn Rushd)",
-      "date": 1126,
-      "type": "person",
-      "position": [
-        -26.6,
-        -1,
-        44.4
-      ],
-      "orbitRadius": 51.7,
-      "orbitAngle": 2.111,
-      "orbitSpeed": 0.15,
-      "lat": 37.8,
-      "lng": -4.7,
-      "description": "Andalusian philosopher, defending Aristotelian thought."
-    },
-    {
-      "id": "mongol",
-      "title": "Mongol Empire",
-      "date": 1206,
-      "type": "event",
-      "position": [
-        -43.5,
-        -2.3,
-        29.2
-      ],
-      "orbitRadius": 52.4,
-      "orbitAngle": 2.551,
-      "orbitSpeed": 0.15,
-      "lat": 47.9,
-      "lng": 106.9,
-      "description": "Genghis Khan conquers massive territories. Wait... Mongols."
-    },
-    {
-      "id": "aquinas",
-      "title": "Thomas Aquinas",
-      "date": 1225,
-      "type": "person",
-      "position": [
-        -45.3,
-        -1,
-        25.8
-      ],
-      "orbitRadius": 52.2,
-      "orbitAngle": 2.623,
-      "orbitSpeed": 0.15,
-      "lat": 41.9,
-      "lng": 12.5,
-      "description": "Writes Summa Theologica, synthesizing Aristotle and Christianity."
-    },
-    {
-      "id": "mali",
-      "title": "Mali Empire",
-      "date": 1312,
-      "type": "event",
-      "position": [
-        19.6,
-        2,
-        -52.4
-      ],
-      "orbitRadius": 56,
-      "orbitAngle": 5.07,
-      "orbitSpeed": 0.15,
-      "lat": 12.6,
-      "lng": -7.9,
-      "description": "Mansa Musa causes inflation through extreme wealth."
-    },
-    {
-      "id": "plague",
-      "title": "The Black Death",
-      "date": 1347,
-      "type": "event",
-      "position": [
-        -46.7,
-        -0.6,
-        29
-      ],
-      "orbitRadius": 55,
-      "orbitAngle": 2.586,
-      "orbitSpeed": 0.15,
-      "lat": 48.8,
-      "lng": 2.3,
-      "description": "Pandemic severely reduces global population by millions."
-    },
-    {
-      "id": "print",
-      "title": "Printing Press",
-      "date": 1440,
-      "type": "event",
-      "position": [
-        56.7,
-        -2.4,
-        -51.5
-      ],
-      "orbitRadius": 76.6,
-      "orbitAngle": 5.546,
-      "orbitSpeed": 0.2,
-      "lat": 49.9,
-      "lng": 8.2,
-      "description": "Johann Gutenberg democratizes information."
-    },
-    {
-      "id": "mach",
-      "title": "Machiavelli",
-      "date": 1469,
-      "type": "person",
-      "position": [
-        58.8,
-        2.3,
-        41.8
-      ],
-      "orbitRadius": 72.1,
-      "orbitAngle": 0.618,
-      "orbitSpeed": 0.2,
-      "lat": 43.7,
-      "lng": 11.2,
-      "description": "Authors 'The Prince', founding modern political science."
-    },
-    {
-      "id": "col",
-      "title": "Columbus",
-      "date": 1492,
-      "type": "event",
-      "position": [
-        -42.9,
-        0.2,
-        62.3
-      ],
-      "orbitRadius": 75.6,
-      "orbitAngle": 2.174,
-      "orbitSpeed": 0.2,
-      "lat": 24.5,
-      "lng": -77.9,
-      "description": "European discovery of the Americas."
-    },
-    {
-      "id": "luther",
-      "title": "Martin Luther",
-      "date": 1517,
-      "type": "person",
-      "position": [
-        36.7,
-        0.2,
-        67.9
-      ],
-      "orbitRadius": 77.2,
-      "orbitAngle": 1.075,
-      "orbitSpeed": 0.2,
-      "lat": 51.8,
-      "lng": 12.6,
-      "description": "Sparks the Protestant Reformation."
-    },
-    {
-      "id": "copern",
-      "title": "Copernicus",
-      "date": 1543,
-      "type": "person",
-      "position": [
-        22.2,
-        2.9,
-        70.8
-      ],
-      "orbitRadius": 74.2,
-      "orbitAngle": 1.267,
-      "orbitSpeed": 0.2,
-      "lat": 54.3,
-      "lng": 19.6,
-      "description": "Proposes the Heliocentric model of the solar system."
-    },
-    {
-      "id": "bacon",
-      "title": "Francis Bacon",
-      "date": 1561,
-      "type": "person",
-      "position": [
-        -53.6,
-        -1.8,
-        52.2
-      ],
-      "orbitRadius": 74.8,
-      "orbitAngle": 2.369,
-      "orbitSpeed": 0.2,
-      "lat": 51.5,
-      "lng": -0.1,
-      "description": "Pioneer of the scientific method."
-    },
-    {
-      "id": "gali",
-      "title": "Galileo",
-      "date": 1564,
-      "type": "person",
-      "position": [
-        21.8,
-        -1.1,
-        75.9
-      ],
-      "orbitRadius": 78.9,
-      "orbitAngle": 1.29,
-      "orbitSpeed": 0.2,
-      "lat": 43.7,
-      "lng": 10.4,
-      "description": "Champion of observation and heliocentrism."
-    },
-    {
-      "id": "hobbes",
-      "title": "Thomas Hobbes",
-      "date": 1588,
-      "type": "person",
-      "position": [
-        -13.8,
-        1.6,
-        -72.9
-      ],
-      "orbitRadius": 74.2,
-      "orbitAngle": 4.525,
-      "orbitSpeed": 0.2,
-      "lat": 51.5,
-      "lng": -0.1,
-      "description": "Authors 'Leviathan' on social contract theory."
-    },
-    {
-      "id": "desc",
-      "title": "René Descartes",
-      "date": 1596,
-      "type": "person",
-      "position": [
-        4.6,
-        1.3,
-        71.2
-      ],
-      "orbitRadius": 71.3,
-      "orbitAngle": 1.507,
-      "orbitSpeed": 0.2,
-      "lat": 48.8,
-      "lng": 2.3,
-      "description": "Rationalism: 'I think, therefore I am'."
-    },
-    {
-      "id": "spino",
-      "title": "Baruch Spinoza",
-      "date": 1632,
-      "type": "person",
-      "position": [
-        25.6,
-        2.6,
-        72.3
-      ],
-      "orbitRadius": 76.7,
-      "orbitAngle": 1.231,
-      "orbitSpeed": 0.2,
-      "lat": 52.3,
-      "lng": 4.9,
-      "description": "Pantheism and radical rationalism."
-    },
-    {
-      "id": "locke",
-      "title": "John Locke",
-      "date": 1632,
-      "type": "person",
-      "position": [
-        -72.2,
-        1.1,
-        -14.2
-      ],
-      "orbitRadius": 73.6,
-      "orbitAngle": 3.336,
-      "orbitSpeed": 0.2,
-      "lat": 51.5,
-      "lng": -0.1,
-      "description": "Father of liberalism and empiricism."
-    },
-    {
-      "id": "newt",
-      "title": "Isaac Newton",
-      "date": 1642,
-      "type": "person",
-      "position": [
-        59.9,
-        1.4,
-        -47.1
-      ],
-      "orbitRadius": 76.2,
-      "orbitAngle": 5.617,
-      "orbitSpeed": 0.2,
-      "lat": 52.2,
-      "lng": 0.1,
-      "description": "Discovers laws of motion and universal gravitation."
-    },
-    {
-      "id": "hume",
-      "title": "David Hume",
-      "date": 1711,
-      "type": "person",
-      "position": [
-        -93.1,
-        1.8,
-        -15.7
-      ],
-      "orbitRadius": 94.4,
-      "orbitAngle": 3.308,
-      "orbitSpeed": 0.25,
-      "lat": 55.9,
-      "lng": -3.1,
-      "description": "Radical empiricist and skeptic."
-    },
-    {
-      "id": "rous",
-      "title": "Jean-Jacques Rousseau",
-      "date": 1712,
-      "type": "person",
-      "position": [
-        -80.6,
-        -2.3,
-        53.5
-      ],
-      "orbitRadius": 96.8,
-      "orbitAngle": 2.555,
-      "orbitSpeed": 0.25,
-      "lat": 46.2,
-      "lng": 6.1,
-      "description": "Romanticism and the 'General Will'."
-    },
-    {
-      "id": "smith",
-      "title": "Adam Smith",
-      "date": 1723,
-      "type": "person",
-      "position": [
-        -53.3,
-        1.1,
-        -80.2
-      ],
-      "orbitRadius": 96.3,
-      "orbitAngle": 4.126,
-      "orbitSpeed": 0.25,
-      "lat": 55.9,
-      "lng": -3.1,
-      "description": "Father of modern economics (Wealth of Nations)."
-    },
-    {
-      "id": "kant",
-      "title": "Immanuel Kant",
-      "date": 1724,
-      "type": "person",
-      "position": [
-        -87.8,
-        0.9,
-        45.4
-      ],
-      "orbitRadius": 98.8,
-      "orbitAngle": 2.664,
-      "orbitSpeed": 0.25,
-      "lat": 54.7,
-      "lng": 20.5,
-      "description": "Synthesizes rationalism and empiricism; Categorical Imperative."
-    },
-    {
-      "id": "steam",
-      "title": "Steam Engine",
-      "date": 1712,
-      "type": "event",
-      "position": [
-        -89.8,
-        -1.2,
-        -19.8
-      ],
-      "orbitRadius": 91.9,
-      "orbitAngle": 3.359,
-      "orbitSpeed": 0.25,
-      "lat": 52.5,
-      "lng": -1.9,
-      "description": "Industrial Revolution begins."
-    },
-    {
-      "id": "amrev",
-      "title": "American Revolution",
-      "date": 1776,
-      "type": "event",
-      "position": [
-        87.8,
-        -2.2,
-        25.3
-      ],
-      "orbitRadius": 91.4,
-      "orbitAngle": 0.281,
-      "orbitSpeed": 0.25,
-      "lat": 39.9,
-      "lng": -75.1,
-      "description": "Democracy applied on a massive scale."
-    },
-    {
-      "id": "frev",
-      "title": "French Revolution",
-      "date": 1789,
-      "type": "event",
-      "position": [
-        -66.5,
-        -1.5,
-        -70.9
-      ],
-      "orbitRadius": 97.2,
-      "orbitAngle": 3.959,
-      "orbitSpeed": 0.25,
-      "lat": 48.8,
-      "lng": 2.3,
-      "description": "Overthrow of the absolute monarchy."
-    },
-    {
-      "id": "hegel",
-      "title": "G.W.F. Hegel",
-      "date": 1770,
-      "type": "person",
-      "position": [
-        93,
-        1.3,
-        21.9
-      ],
-      "orbitRadius": 95.5,
-      "orbitAngle": 0.231,
-      "orbitSpeed": 0.25,
-      "lat": 48.7,
-      "lng": 9.1,
-      "description": "Idealism and the dialectical progression of history."
-    },
-    {
-      "id": "schopen",
-      "title": "Arthur Schopenhauer",
-      "date": 1788,
-      "type": "person",
-      "position": [
-        57.2,
-        1.1,
-        -77.3
-      ],
-      "orbitRadius": 96.2,
-      "orbitAngle": 5.349,
-      "orbitSpeed": 0.25,
-      "lat": 54.3,
-      "lng": 19.6,
-      "description": "The world as Will and Representation."
-    },
-    {
-      "id": "darwin",
-      "title": "Charles Darwin",
-      "date": 1809,
-      "type": "person",
-      "position": [
-        6,
-        -1.7,
-        -95.2
-      ],
-      "orbitRadius": 95.4,
-      "orbitAngle": 4.775,
-      "orbitSpeed": 0.25,
-      "lat": 51.3,
-      "lng": 0,
-      "description": "Theory of Evolution by Natural Selection."
-    },
-    {
-      "id": "kierk",
-      "title": "Søren Kierkegaard",
-      "date": 1813,
-      "type": "person",
-      "position": [
-        9.2,
-        1,
-        92.8
-      ],
-      "orbitRadius": 93.3,
-      "orbitAngle": 1.472,
-      "orbitSpeed": 0.25,
-      "lat": 55.6,
-      "lng": 12.5,
-      "description": "First existentialist philosopher."
-    },
-    {
-      "id": "marx",
-      "title": "Karl Marx",
-      "date": 1818,
-      "type": "person",
-      "position": [
-        36.7,
-        1.8,
-        -88.6
-      ],
-      "orbitRadius": 95.9,
-      "orbitAngle": 5.105,
-      "orbitSpeed": 0.25,
-      "lat": 49.7,
-      "lng": 6.6,
-      "description": "Critique of capitalism, historical materialism."
-    },
-    {
-      "id": "nietz",
-      "title": "Friedrich Nietzsche",
-      "date": 1844,
-      "type": "person",
-      "position": [
-        6.4,
-        -2,
-        95.1
-      ],
-      "orbitRadius": 95.3,
-      "orbitAngle": 1.503,
-      "orbitSpeed": 0.25,
-      "lat": 51.2,
-      "lng": 12,
-      "description": "Death of God, the Übermensch, Will to Power."
-    },
-    {
-      "id": "james",
-      "title": "William James",
-      "date": 1842,
-      "type": "person",
-      "position": [
-        -42.6,
-        1.7,
-        81
-      ],
-      "orbitRadius": 91.5,
-      "orbitAngle": 2.055,
-      "orbitSpeed": 0.25,
-      "lat": 40.7,
-      "lng": -74,
-      "description": "Pragmatism and psychology."
-    },
-    {
-      "id": "freud",
-      "title": "Sigmund Freud",
-      "date": 1856,
-      "type": "person",
-      "position": [
-        63.1,
-        2.7,
-        -74.7
-      ],
-      "orbitRadius": 97.8,
-      "orbitAngle": 5.413,
-      "orbitSpeed": 0.25,
-      "lat": 48.2,
-      "lng": 16.3,
-      "description": "The unconscious mind and psychoanalysis."
-    },
-    {
-      "id": "husserl",
-      "title": "Edmund Husserl",
-      "date": 1859,
-      "type": "person",
-      "position": [
-        -28.4,
-        -1.1,
-        -88.2
-      ],
-      "orbitRadius": 92.6,
-      "orbitAngle": 4.401,
-      "orbitSpeed": 0.25,
-      "lat": 49.5,
-      "lng": 17.2,
-      "description": "Founder of phenomenology."
-    },
-    {
-      "id": "russell",
-      "title": "Bertrand Russell",
-      "date": 1872,
-      "type": "person",
-      "position": [
-        86.2,
-        1.4,
-        -41.4
-      ],
-      "orbitRadius": 95.6,
-      "orbitAngle": 5.835,
-      "orbitSpeed": 0.25,
-      "lat": 51.7,
-      "lng": -3.1,
-      "description": "Analytic philosophy and logicism."
-    },
-    {
-      "id": "einst",
-      "title": "Albert Einstein",
-      "date": 1879,
-      "type": "person",
-      "position": [
-        -62.4,
-        -2.3,
-        -69.9
-      ],
-      "orbitRadius": 93.7,
-      "orbitAngle": 3.984,
-      "orbitSpeed": 0.25,
-      "lat": 48.3,
-      "lng": 9.9,
-      "description": "Theory of Relativity."
-    },
-    {
-      "id": "witt",
-      "title": "Ludwig Wittgenstein",
-      "date": 1889,
-      "type": "person",
-      "position": [
-        -38.1,
-        -1.9,
-        88.2
-      ],
-      "orbitRadius": 96.1,
-      "orbitAngle": 1.978,
-      "orbitSpeed": 0.25,
-      "lat": 48.2,
-      "lng": 16.3,
-      "description": "Philosophy of language."
-    },
-    {
-      "id": "heideg",
-      "title": "Martin Heidegger",
-      "date": 1889,
-      "type": "person",
-      "position": [
-        -73,
-        -0.8,
-        -60.3
-      ],
-      "orbitRadius": 94.7,
-      "orbitAngle": 3.832,
-      "orbitSpeed": 0.25,
-      "lat": 48,
-      "lng": 9,
-      "description": "Being and Time; phenomenology."
-    },
-    {
-      "id": "sartre",
-      "title": "Jean-Paul Sartre",
-      "date": 1905,
-      "type": "person",
-      "position": [
-        60.1,
-        -0.7,
-        -95.4
-      ],
-      "orbitRadius": 112.7,
-      "orbitAngle": 5.274,
-      "orbitSpeed": 0.3,
-      "lat": 48.8,
-      "lng": 2.3,
-      "description": "Existentialism: 'Existence precedes essence'."
-    },
-    {
-      "id": "arens",
-      "title": "Hannah Arendt",
-      "date": 1906,
-      "type": "person",
-      "position": [
-        34.9,
-        3,
-        109.2
-      ],
-      "orbitRadius": 114.7,
-      "orbitAngle": 1.261,
-      "orbitSpeed": 0.3,
-      "lat": 52.3,
-      "lng": 9.7,
-      "description": "Political philosophy, origins of totalitarianism."
-    },
-    {
-      "id": "beauv",
-      "title": "Simone de Beauvoir",
-      "date": 1908,
-      "type": "person",
-      "position": [
-        -70.9,
-        -1.5,
-        88.4
-      ],
-      "orbitRadius": 113.4,
-      "orbitAngle": 2.247,
-      "orbitSpeed": 0.3,
-      "lat": 48.8,
-      "lng": 2.3,
-      "description": "Feminist existentialism: 'The Second Sex'."
-    },
-    {
-      "id": "camus",
-      "title": "Albert Camus",
-      "date": 1913,
-      "type": "person",
-      "position": [
-        -31.2,
-        1.2,
-        112.5
-      ],
-      "orbitRadius": 116.8,
-      "orbitAngle": 1.841,
-      "orbitSpeed": 0.3,
-      "lat": 36.7,
-      "lng": 3,
-      "description": "Absurdism."
-    },
-    {
-      "id": "ww1",
-      "title": "World War I",
-      "date": 1914,
-      "type": "event",
-      "position": [
-        -110.4,
-        -3,
-        -17.7
-      ],
-      "orbitRadius": 111.8,
-      "orbitAngle": 3.3,
-      "orbitSpeed": 0.3,
-      "lat": 43.8,
-      "lng": 18.4,
-      "description": "Catastrophic global conflict shattering modern optimism."
-    },
-    {
-      "id": "ww2",
-      "title": "World War II",
-      "date": 1939,
-      "type": "event",
-      "position": [
-        -114.1,
-        -1.9,
-        30.7
-      ],
-      "orbitRadius": 118.1,
-      "orbitAngle": 2.879,
-      "orbitSpeed": 0.3,
-      "lat": 52.2,
-      "lng": 21,
-      "description": "The most devastating conflict in human history."
-    },
-    {
-      "id": "cold",
-      "title": "Cold War",
-      "date": 1947,
-      "type": "event",
-      "position": [
-        22.2,
-        1.4,
-        -111.9
-      ],
-      "orbitRadius": 114.1,
-      "orbitAngle": 4.908,
-      "orbitSpeed": 0.3,
-      "lat": 55.7,
-      "lng": 37.6,
-      "description": "Global geopolitical tension between the US and Soviet Union."
-    },
-    {
-      "id": "fouc",
-      "title": "Michel Foucault",
-      "date": 1926,
-      "type": "person",
-      "position": [
-        99.5,
-        -0.2,
-        60.5
-      ],
-      "orbitRadius": 116.4,
-      "orbitAngle": 0.546,
-      "orbitSpeed": 0.3,
-      "lat": 46.2,
-      "lng": 1.1,
-      "description": "Power, knowledge, and social institutions."
-    },
-    {
-      "id": "nuke",
-      "title": "Trinity Test",
-      "date": 1945,
-      "type": "event",
-      "position": [
-        -111,
-        -2.9,
-        22.6
-      ],
-      "orbitRadius": 113.3,
-      "orbitAngle": 2.941,
-      "orbitSpeed": 0.3,
-      "lat": 33.6,
-      "lng": -106.4,
-      "description": "Humanity acquires the capacity to destroy itself."
-    },
-    {
-      "id": "dna",
-      "title": "DNA Double Helix",
-      "date": 1953,
-      "type": "event",
-      "position": [
-        32.9,
-        -1,
-        108.9
-      ],
-      "orbitRadius": 113.8,
-      "orbitAngle": 1.278,
-      "orbitSpeed": 0.3,
-      "lat": 52.2,
-      "lng": 0.1,
-      "description": "The fundamental architecture of biology is mapped."
-    },
-    {
-      "id": "moon",
-      "title": "Moon Landing",
-      "date": 1969,
-      "type": "event",
-      "position": [
-        31,
-        -1.7,
-        111.8
-      ],
-      "orbitRadius": 116,
-      "orbitAngle": 1.3,
-      "orbitSpeed": 0.3,
-      "lat": 28.5,
-      "lng": -80.6,
-      "description": "First human beings step onto another celestial body."
-    },
-    {
-      "id": "web",
-      "title": "World Wide Web",
-      "date": 1989,
-      "type": "event",
-      "position": [
-        102.7,
-        -0.3,
-        45.6
-      ],
-      "orbitRadius": 112.3,
-      "orbitAngle": 0.418,
-      "orbitSpeed": 0.3,
-      "lat": 46.2,
-      "lng": 6,
-      "description": "The dawn of global digital connectivity."
-    },
-    {
-      "id": "ai",
-      "title": "Generative AI",
-      "date": 2023,
-      "type": "event",
-      "position": [
-        6.9,
-        0.4,
-        117.1
-      ],
-      "orbitRadius": 117.3,
-      "orbitAngle": 1.512,
-      "orbitSpeed": 0.3,
-      "lat": 37.7,
-      "lng": -122.4,
-      "description": "Algorithms successfully mimic human reasoning and creativity."
+      "lat": 34.2,
+      "lng": 108.9,
+      "description": "First Emperor of China, unifies the warring states, starts the Great Wall."
     },
     {
       "id": "han",
@@ -1629,6 +456,97 @@ export const dataset = {
       "description": "Golden age of Chinese philosophy and the dawn of the Silk Road."
     },
     {
+      "id": "aug",
+      "title": "Augustus",
+      "date": -27,
+      "type": "person",
+      "position": [33.5, -2.4, 6.5],
+      "orbitRadius": 34.1,
+      "orbitAngle": 0.192,
+      "orbitSpeed": 0.1,
+      "lat": 41.9,
+      "lng": 12.5,
+      "description": "First Roman Emperor, starting the Pax Romana."
+    },
+    {
+      "id": "jesus",
+      "title": "Jesus of Nazareth",
+      "date": 30,
+      "type": "person",
+      "position": [1.6, 2.3, 37.9],
+      "orbitRadius": 38,
+      "orbitAngle": 1.528,
+      "orbitSpeed": 0.1,
+      "lat": 31.7,
+      "lng": 35.2,
+      "description": "Crucifixion triggers the rise of Christianity."
+    },
+    {
+      "id": "epict",
+      "title": "Epictetus",
+      "date": 50,
+      "type": "person",
+      "position": [-19, 1.3, 26.6],
+      "orbitRadius": 32.7,
+      "orbitAngle": 2.191,
+      "orbitSpeed": 0.1,
+      "lat": 37.9,
+      "lng": 27.3,
+      "description": "Stoic philosopher born into slavery."
+    },
+    {
+      "id": "marc",
+      "title": "Marcus Aurelius",
+      "date": 121,
+      "type": "person",
+      "position": [-2.8, -1.6, 38.1],
+      "orbitRadius": 38.2,
+      "orbitAngle": 1.645,
+      "orbitSpeed": 0.1,
+      "lat": 41.9,
+      "lng": 12.5,
+      "description": "The Philosopher King; author of 'Meditations'."
+    },
+    {
+      "id": "augustine",
+      "title": "Augustine of Hippo",
+      "date": 354,
+      "type": "person",
+      "position": [-31.1, 2.9, -11.2],
+      "orbitRadius": 33,
+      "orbitAngle": 3.489,
+      "orbitSpeed": 0.1,
+      "lat": 36.9,
+      "lng": 7.7,
+      "description": "Marries Neoplatonism with Christian theology."
+    },
+    {
+      "id": "split",
+      "title": "Rome Splits",
+      "date": 285,
+      "type": "event",
+      "position": [-23.7, -2.4, -25.4],
+      "orbitRadius": 34.8,
+      "orbitAngle": 3.962,
+      "orbitSpeed": 0.1,
+      "lat": 41,
+      "lng": 28.9,
+      "description": "The Roman Empire is long gone. But wait, it's not. It's just half gone."
+    },
+    {
+      "id": "fallrom",
+      "title": "Fall of Rome",
+      "date": 476,
+      "type": "event",
+      "position": [53.3, 1.7, -4.1],
+      "orbitRadius": 53.4,
+      "orbitAngle": 6.207,
+      "orbitSpeed": 0.15,
+      "lat": 41.9,
+      "lng": 12.5,
+      "description": "Western Roman Empire collapses."
+    },
+    {
       "id": "byz",
       "title": "Byzantine Empire",
       "date": 527,
@@ -1640,6 +558,19 @@ export const dataset = {
       "lat": 41.0,
       "lng": 28.9,
       "description": "Preservation of Roman law and Greek culture in Constantinople."
+    },
+    {
+      "id": "muh",
+      "title": "Prophet Muhammad",
+      "date": 610,
+      "type": "person",
+      "position": [18.5, -0.7, 54.2],
+      "orbitRadius": 57.2,
+      "orbitAngle": 1.242,
+      "orbitSpeed": 0.15,
+      "lat": 21.4,
+      "lng": 39.8,
+      "description": "Founds Islam, fundamentally altering global philosophy."
     },
     {
       "id": "tang",
@@ -1655,6 +586,19 @@ export const dataset = {
       "description": "High point of Chinese civilization and international cosmopolitanism."
     },
     {
+      "id": "gold",
+      "title": "Islamic Golden Age",
+      "date": 790,
+      "type": "event",
+      "position": [-23.9, -2.8, -46.1],
+      "orbitRadius": 51.9,
+      "orbitAngle": 4.234,
+      "orbitSpeed": 0.15,
+      "lat": 33.3,
+      "lng": 44.4,
+      "description": "House of Wisdom in Baghdad preserves and advances science."
+    },
+    {
       "id": "song",
       "title": "Song Dynasty",
       "date": 960,
@@ -1665,7 +609,137 @@ export const dataset = {
       "orbitSpeed": 0.15,
       "lat": 34.7,
       "lng": 114.3,
-      "description": "Era of gunpowder, the compass, and early modern economic growth."
+      "description": "Era of gunpowder, the compass, and movable-type printing — Chinese innovations that later transformed Europe."
+    },
+    {
+      "id": "avic",
+      "title": "Avicenna (Ibn Sina)",
+      "date": 980,
+      "type": "person",
+      "position": [41, -1.2, -39.7],
+      "orbitRadius": 57.1,
+      "orbitAngle": 5.513,
+      "orbitSpeed": 0.15,
+      "lat": 40.3,
+      "lng": 63.4,
+      "description": "Polymath who profoundly influenced Islamic and Western philosophy."
+    },
+    {
+      "id": "schism",
+      "title": "Great Schism",
+      "date": 1054,
+      "type": "event",
+      "position": [-40.8, -1.2, -40.5],
+      "orbitRadius": 57.5,
+      "orbitAngle": 3.924,
+      "orbitSpeed": 0.15,
+      "lat": 41,
+      "lng": 28.9,
+      "description": "Christianity splits into Catholic and Orthodox blocks."
+    },
+    {
+      "id": "aver",
+      "title": "Averroes (Ibn Rushd)",
+      "date": 1126,
+      "type": "person",
+      "position": [-26.6, -1, 44.4],
+      "orbitRadius": 51.7,
+      "orbitAngle": 2.111,
+      "orbitSpeed": 0.15,
+      "lat": 37.8,
+      "lng": -4.7,
+      "description": "Andalusian philosopher, defending Aristotelian thought."
+    },
+    {
+      "id": "magna",
+      "title": "Magna Carta",
+      "date": 1215,
+      "type": "thought",
+      "position": [0, 0, 0],
+      "orbitRadius": 53,
+      "orbitAngle": 5.6,
+      "orbitSpeed": 0.15,
+      "lat": 51.2,
+      "lng": -1.5,
+      "description": "English barons force limits on royal power. The foundational document of constitutional government, rule of law, and individual rights — directly inspiring Locke and the American Revolution."
+    },
+    {
+      "id": "mongol",
+      "title": "Mongol Empire",
+      "date": 1206,
+      "type": "event",
+      "position": [-43.5, -2.3, 29.2],
+      "orbitRadius": 52.4,
+      "orbitAngle": 2.551,
+      "orbitSpeed": 0.15,
+      "lat": 47.9,
+      "lng": 106.9,
+      "description": "Genghis Khan conquers massive territories. Wait... Mongols."
+    },
+    {
+      "id": "aquinas",
+      "title": "Thomas Aquinas",
+      "date": 1225,
+      "type": "person",
+      "position": [-45.3, -1, 25.8],
+      "orbitRadius": 52.2,
+      "orbitAngle": 2.623,
+      "orbitSpeed": 0.15,
+      "lat": 41.9,
+      "lng": 12.5,
+      "description": "Writes Summa Theologica, synthesizing Aristotle and Christianity."
+    },
+    {
+      "id": "mali",
+      "title": "Mali Empire",
+      "date": 1312,
+      "type": "event",
+      "position": [19.6, 2, -52.4],
+      "orbitRadius": 56,
+      "orbitAngle": 5.07,
+      "orbitSpeed": 0.15,
+      "lat": 12.6,
+      "lng": -7.9,
+      "description": "Mansa Musa causes inflation through extreme wealth. Peak of sub-Saharan African civilization — Timbuktu becomes a global center of Islamic scholarship."
+    },
+    {
+      "id": "plague",
+      "title": "The Black Death",
+      "date": 1347,
+      "type": "event",
+      "position": [-46.7, -0.6, 29],
+      "orbitRadius": 55,
+      "orbitAngle": 2.586,
+      "orbitSpeed": 0.15,
+      "lat": 48.8,
+      "lng": 2.3,
+      "description": "Pandemic severely reduces global population by millions. The social upheaval accelerates the collapse of feudalism and seeds the Renaissance."
+    },
+    {
+      "id": "renaissance",
+      "title": "The Renaissance",
+      "date": 1400,
+      "type": "thought",
+      "position": [0, 0, 0],
+      "orbitRadius": 72,
+      "orbitAngle": 6.0,
+      "orbitSpeed": 0.2,
+      "lat": 43.7,
+      "lng": 11.2,
+      "description": "Rebirth of classical learning in Italy. Humanism, art, and science challenge medieval authority — the bridge between Aquinas and Descartes."
+    },
+    {
+      "id": "print",
+      "title": "Printing Press",
+      "date": 1440,
+      "type": "event",
+      "position": [56.7, -2.4, -51.5],
+      "orbitRadius": 76.6,
+      "orbitAngle": 5.546,
+      "orbitSpeed": 0.2,
+      "lat": 49.9,
+      "lng": 8.2,
+      "description": "Johann Gutenberg democratizes information. The most disruptive technology before the internet — enables the Reformation, the Scientific Revolution, and the spread of Enlightenment ideas."
     },
     {
       "id": "ottoman",
@@ -1681,6 +755,253 @@ export const dataset = {
       "description": "The fall of Constantinople and the rise of a transcontinental superpower."
     },
     {
+      "id": "col",
+      "title": "Columbus",
+      "date": 1492,
+      "type": "event",
+      "position": [-42.9, 0.2, 62.3],
+      "orbitRadius": 75.6,
+      "orbitAngle": 2.174,
+      "orbitSpeed": 0.2,
+      "lat": 24.5,
+      "lng": -77.9,
+      "description": "European contact with the Americas. Triggers the Columbian Exchange, the colonial era, and a global reshaping of power, trade, and philosophy."
+    },
+    {
+      "id": "mach",
+      "title": "Machiavelli",
+      "date": 1469,
+      "type": "person",
+      "position": [58.8, 2.3, 41.8],
+      "orbitRadius": 72.1,
+      "orbitAngle": 0.618,
+      "orbitSpeed": 0.2,
+      "lat": 43.7,
+      "lng": 11.2,
+      "description": "Authors 'The Prince', founding modern political science. Power divorced from morality."
+    },
+    {
+      "id": "luther",
+      "title": "Martin Luther",
+      "date": 1517,
+      "type": "person",
+      "position": [36.7, 0.2, 67.9],
+      "orbitRadius": 77.2,
+      "orbitAngle": 1.075,
+      "orbitSpeed": 0.2,
+      "lat": 51.8,
+      "lng": 12.6,
+      "description": "Sparks the Protestant Reformation with his 95 Theses — only possible because Gutenberg's press could spread them across Europe in weeks."
+    },
+    {
+      "id": "copern",
+      "title": "Copernicus",
+      "date": 1543,
+      "type": "person",
+      "position": [22.2, 2.9, 70.8],
+      "orbitRadius": 74.2,
+      "orbitAngle": 1.267,
+      "orbitSpeed": 0.2,
+      "lat": 54.3,
+      "lng": 19.6,
+      "description": "Proposes the Heliocentric model of the solar system."
+    },
+    {
+      "id": "bacon",
+      "title": "Francis Bacon",
+      "date": 1561,
+      "type": "person",
+      "position": [-53.6, -1.8, 52.2],
+      "orbitRadius": 74.8,
+      "orbitAngle": 2.369,
+      "orbitSpeed": 0.2,
+      "lat": 51.5,
+      "lng": -0.1,
+      "description": "Pioneer of the scientific method."
+    },
+    {
+      "id": "gali",
+      "title": "Galileo",
+      "date": 1564,
+      "type": "person",
+      "position": [21.8, -1.1, 75.9],
+      "orbitRadius": 78.9,
+      "orbitAngle": 1.29,
+      "orbitSpeed": 0.2,
+      "lat": 43.7,
+      "lng": 10.4,
+      "description": "Champion of observation and heliocentrism."
+    },
+    {
+      "id": "hobbes",
+      "title": "Thomas Hobbes",
+      "date": 1588,
+      "type": "person",
+      "position": [-13.8, 1.6, -72.9],
+      "orbitRadius": 74.2,
+      "orbitAngle": 4.525,
+      "orbitSpeed": 0.2,
+      "lat": 51.5,
+      "lng": -0.1,
+      "description": "Authors 'Leviathan' on social contract theory."
+    },
+    {
+      "id": "desc",
+      "title": "René Descartes",
+      "date": 1596,
+      "type": "person",
+      "position": [4.6, 1.3, 71.2],
+      "orbitRadius": 71.3,
+      "orbitAngle": 1.507,
+      "orbitSpeed": 0.2,
+      "lat": 48.8,
+      "lng": 2.3,
+      "description": "Rationalism: 'I think, therefore I am'."
+    },
+    {
+      "id": "spino",
+      "title": "Baruch Spinoza",
+      "date": 1632,
+      "type": "person",
+      "position": [25.6, 2.6, 72.3],
+      "orbitRadius": 76.7,
+      "orbitAngle": 1.231,
+      "orbitSpeed": 0.2,
+      "lat": 52.3,
+      "lng": 4.9,
+      "description": "Pantheism and radical rationalism."
+    },
+    {
+      "id": "locke",
+      "title": "John Locke",
+      "date": 1632,
+      "type": "person",
+      "position": [-72.2, 1.1, -14.2],
+      "orbitRadius": 73.6,
+      "orbitAngle": 3.336,
+      "orbitSpeed": 0.2,
+      "lat": 51.5,
+      "lng": -0.1,
+      "description": "Father of liberalism and empiricism. His theory of natural rights directly shaped the American Declaration of Independence."
+    },
+    {
+      "id": "newt",
+      "title": "Isaac Newton",
+      "date": 1642,
+      "type": "person",
+      "position": [59.9, 1.4, -47.1],
+      "orbitRadius": 76.2,
+      "orbitAngle": 5.617,
+      "orbitSpeed": 0.2,
+      "lat": 52.2,
+      "lng": 0.1,
+      "description": "Discovers laws of motion and universal gravitation."
+    },
+    {
+      "id": "hume",
+      "title": "David Hume",
+      "date": 1711,
+      "type": "person",
+      "position": [-93.1, 1.8, -15.7],
+      "orbitRadius": 94.4,
+      "orbitAngle": 3.308,
+      "orbitSpeed": 0.25,
+      "lat": 55.9,
+      "lng": -3.1,
+      "description": "Radical empiricist and skeptic."
+    },
+    {
+      "id": "rous",
+      "title": "Jean-Jacques Rousseau",
+      "date": 1712,
+      "type": "person",
+      "position": [-80.6, -2.3, 53.5],
+      "orbitRadius": 96.8,
+      "orbitAngle": 2.555,
+      "orbitSpeed": 0.25,
+      "lat": 46.2,
+      "lng": 6.1,
+      "description": "Romanticism and the 'General Will'."
+    },
+    {
+      "id": "steam",
+      "title": "Steam Engine",
+      "date": 1712,
+      "type": "event",
+      "position": [-89.8, -1.2, -19.8],
+      "orbitRadius": 91.9,
+      "orbitAngle": 3.359,
+      "orbitSpeed": 0.25,
+      "lat": 52.5,
+      "lng": -1.9,
+      "description": "Industrial Revolution begins."
+    },
+    {
+      "id": "smith",
+      "title": "Adam Smith",
+      "date": 1723,
+      "type": "person",
+      "position": [-53.3, 1.1, -80.2],
+      "orbitRadius": 96.3,
+      "orbitAngle": 4.126,
+      "orbitSpeed": 0.25,
+      "lat": 55.9,
+      "lng": -3.1,
+      "description": "Father of modern economics (Wealth of Nations). His theory of free markets and the invisible hand became the framework Marx would later critique."
+    },
+    {
+      "id": "kant",
+      "title": "Immanuel Kant",
+      "date": 1724,
+      "type": "person",
+      "position": [-87.8, 0.9, 45.4],
+      "orbitRadius": 98.8,
+      "orbitAngle": 2.664,
+      "orbitSpeed": 0.25,
+      "lat": 54.7,
+      "lng": 20.5,
+      "description": "Synthesizes rationalism and empiricism; Categorical Imperative."
+    },
+    {
+      "id": "amrev",
+      "title": "American Revolution",
+      "date": 1776,
+      "type": "event",
+      "position": [87.8, -2.2, 25.3],
+      "orbitRadius": 91.4,
+      "orbitAngle": 0.281,
+      "orbitSpeed": 0.25,
+      "lat": 39.9,
+      "lng": -75.1,
+      "description": "Democracy applied on a massive scale."
+    },
+    {
+      "id": "frev",
+      "title": "French Revolution",
+      "date": 1789,
+      "type": "event",
+      "position": [-66.5, -1.5, -70.9],
+      "orbitRadius": 97.2,
+      "orbitAngle": 3.959,
+      "orbitSpeed": 0.25,
+      "lat": 48.8,
+      "lng": 2.3,
+      "description": "Overthrow of the absolute monarchy."
+    },
+    {
+      "id": "hegel",
+      "title": "G.W.F. Hegel",
+      "date": 1770,
+      "type": "person",
+      "position": [93, 1.3, 21.9],
+      "orbitRadius": 95.5,
+      "orbitAngle": 0.231,
+      "orbitSpeed": 0.25,
+      "lat": 48.7,
+      "lng": 9.1,
+      "description": "Idealism and the dialectical progression of history. Famously called Napoleon 'the world spirit on horseback.'"
+    },
+    {
       "id": "napoleon",
       "title": "Napoleon Bonaparte",
       "date": 1804,
@@ -1691,7 +1012,85 @@ export const dataset = {
       "orbitSpeed": 0.25,
       "lat": 48.8,
       "lng": 2.3,
-      "description": "Legal reforms and revolutionary ideals spreading across Europe."
+      "description": "Legal reforms and revolutionary ideals spreading across Europe. The Napoleonic Code standardized law across conquered territories; his wars of nationalism seeded the ideological fires of the 19th century."
+    },
+    {
+      "id": "schopen",
+      "title": "Arthur Schopenhauer",
+      "date": 1788,
+      "type": "person",
+      "position": [57.2, 1.1, -77.3],
+      "orbitRadius": 96.2,
+      "orbitAngle": 5.349,
+      "orbitSpeed": 0.25,
+      "lat": 54.3,
+      "lng": 19.6,
+      "description": "The world as Will and Representation."
+    },
+    {
+      "id": "darwin",
+      "title": "Charles Darwin",
+      "date": 1809,
+      "type": "person",
+      "position": [6, -1.7, -95.2],
+      "orbitRadius": 95.4,
+      "orbitAngle": 4.775,
+      "orbitSpeed": 0.25,
+      "lat": 51.3,
+      "lng": 0,
+      "description": "Theory of Evolution by Natural Selection."
+    },
+    {
+      "id": "kierk",
+      "title": "Søren Kierkegaard",
+      "date": 1813,
+      "type": "person",
+      "position": [9.2, 1, 92.8],
+      "orbitRadius": 93.3,
+      "orbitAngle": 1.472,
+      "orbitSpeed": 0.25,
+      "lat": 55.6,
+      "lng": 12.5,
+      "description": "First existentialist philosopher."
+    },
+    {
+      "id": "marx",
+      "title": "Karl Marx",
+      "date": 1818,
+      "type": "person",
+      "position": [36.7, 1.8, -88.6],
+      "orbitRadius": 95.9,
+      "orbitAngle": 5.105,
+      "orbitSpeed": 0.25,
+      "lat": 49.7,
+      "lng": 6.6,
+      "description": "Critique of capitalism, historical materialism."
+    },
+    {
+      "id": "nietz",
+      "title": "Friedrich Nietzsche",
+      "date": 1844,
+      "type": "person",
+      "position": [6.4, -2, 95.1],
+      "orbitRadius": 95.3,
+      "orbitAngle": 1.503,
+      "orbitSpeed": 0.25,
+      "lat": 51.2,
+      "lng": 12,
+      "description": "Death of God, the Übermensch, Will to Power."
+    },
+    {
+      "id": "james",
+      "title": "William James",
+      "date": 1842,
+      "type": "person",
+      "position": [-42.6, 1.7, 81],
+      "orbitRadius": 91.5,
+      "orbitAngle": 2.055,
+      "orbitSpeed": 0.25,
+      "lat": 40.7,
+      "lng": -74,
+      "description": "Pragmatism and psychology."
     },
     {
       "id": "elec",
@@ -1704,7 +1103,241 @@ export const dataset = {
       "orbitSpeed": 0.25,
       "lat": 40.7,
       "lng": -74.0,
-      "description": "The second industrial revolution lights up the world."
+      "description": "The second industrial revolution lights up the world. Edison and Tesla's work in electrification underpins modern industry, communications, and warfare."
+    },
+    {
+      "id": "freud",
+      "title": "Sigmund Freud",
+      "date": 1856,
+      "type": "person",
+      "position": [63.1, 2.7, -74.7],
+      "orbitRadius": 97.8,
+      "orbitAngle": 5.413,
+      "orbitSpeed": 0.25,
+      "lat": 48.2,
+      "lng": 16.3,
+      "description": "The unconscious mind and psychoanalysis."
+    },
+    {
+      "id": "husserl",
+      "title": "Edmund Husserl",
+      "date": 1859,
+      "type": "person",
+      "position": [-28.4, -1.1, -88.2],
+      "orbitRadius": 92.6,
+      "orbitAngle": 4.401,
+      "orbitSpeed": 0.25,
+      "lat": 49.5,
+      "lng": 17.2,
+      "description": "Founder of phenomenology."
+    },
+    {
+      "id": "russell",
+      "title": "Bertrand Russell",
+      "date": 1872,
+      "type": "person",
+      "position": [86.2, 1.4, -41.4],
+      "orbitRadius": 95.6,
+      "orbitAngle": 5.835,
+      "orbitSpeed": 0.25,
+      "lat": 51.7,
+      "lng": -3.1,
+      "description": "Analytic philosophy and logicism."
+    },
+    {
+      "id": "einst",
+      "title": "Albert Einstein",
+      "date": 1879,
+      "type": "person",
+      "position": [-62.4, -2.3, -69.9],
+      "orbitRadius": 93.7,
+      "orbitAngle": 3.984,
+      "orbitSpeed": 0.25,
+      "lat": 48.3,
+      "lng": 9.9,
+      "description": "Theory of Relativity. His work on mass-energy equivalence (E=mc²) directly enabled nuclear weapons."
+    },
+    {
+      "id": "witt",
+      "title": "Ludwig Wittgenstein",
+      "date": 1889,
+      "type": "person",
+      "position": [-38.1, -1.9, 88.2],
+      "orbitRadius": 96.1,
+      "orbitAngle": 1.978,
+      "orbitSpeed": 0.25,
+      "lat": 48.2,
+      "lng": 16.3,
+      "description": "Philosophy of language."
+    },
+    {
+      "id": "heideg",
+      "title": "Martin Heidegger",
+      "date": 1889,
+      "type": "person",
+      "position": [-73, -0.8, -60.3],
+      "orbitRadius": 94.7,
+      "orbitAngle": 3.832,
+      "orbitSpeed": 0.25,
+      "lat": 48,
+      "lng": 9,
+      "description": "Being and Time; phenomenology."
+    },
+    {
+      "id": "ww1",
+      "title": "World War I",
+      "date": 1914,
+      "type": "event",
+      "position": [-110.4, -3, -17.7],
+      "orbitRadius": 111.8,
+      "orbitAngle": 3.3,
+      "orbitSpeed": 0.3,
+      "lat": 43.8,
+      "lng": 18.4,
+      "description": "Catastrophic global conflict shattering modern optimism. Industrialized slaughter forged by nationalism, colonialism, and the logic of industrial-era power."
+    },
+    {
+      "id": "sartre",
+      "title": "Jean-Paul Sartre",
+      "date": 1905,
+      "type": "person",
+      "position": [60.1, -0.7, -95.4],
+      "orbitRadius": 112.7,
+      "orbitAngle": 5.274,
+      "orbitSpeed": 0.3,
+      "lat": 48.8,
+      "lng": 2.3,
+      "description": "Existentialism: 'Existence precedes essence'."
+    },
+    {
+      "id": "arens",
+      "title": "Hannah Arendt",
+      "date": 1906,
+      "type": "person",
+      "position": [34.9, 3, 109.2],
+      "orbitRadius": 114.7,
+      "orbitAngle": 1.261,
+      "orbitSpeed": 0.3,
+      "lat": 52.3,
+      "lng": 9.7,
+      "description": "Political philosophy, origins of totalitarianism."
+    },
+    {
+      "id": "beauv",
+      "title": "Simone de Beauvoir",
+      "date": 1908,
+      "type": "person",
+      "position": [-70.9, -1.5, 88.4],
+      "orbitRadius": 113.4,
+      "orbitAngle": 2.247,
+      "orbitSpeed": 0.3,
+      "lat": 48.8,
+      "lng": 2.3,
+      "description": "Feminist existentialism: 'The Second Sex'."
+    },
+    {
+      "id": "camus",
+      "title": "Albert Camus",
+      "date": 1913,
+      "type": "person",
+      "position": [-31.2, 1.2, 112.5],
+      "orbitRadius": 116.8,
+      "orbitAngle": 1.841,
+      "orbitSpeed": 0.3,
+      "lat": 36.7,
+      "lng": 3,
+      "description": "Absurdism."
+    },
+    {
+      "id": "ww2",
+      "title": "World War II",
+      "date": 1939,
+      "type": "event",
+      "position": [-114.1, -1.9, 30.7],
+      "orbitRadius": 118.1,
+      "orbitAngle": 2.879,
+      "orbitSpeed": 0.3,
+      "lat": 52.2,
+      "lng": 21,
+      "description": "The most devastating conflict in human history."
+    },
+    {
+      "id": "nuke",
+      "title": "Trinity Test",
+      "date": 1945,
+      "type": "event",
+      "position": [-111, -2.9, 22.6],
+      "orbitRadius": 113.3,
+      "orbitAngle": 2.941,
+      "orbitSpeed": 0.3,
+      "lat": 33.6,
+      "lng": -106.4,
+      "description": "Humanity acquires the capacity to destroy itself."
+    },
+    {
+      "id": "cold",
+      "title": "Cold War",
+      "date": 1947,
+      "type": "event",
+      "position": [22.2, 1.4, -111.9],
+      "orbitRadius": 114.1,
+      "orbitAngle": 4.908,
+      "orbitSpeed": 0.3,
+      "lat": 55.7,
+      "lng": 37.6,
+      "description": "Global geopolitical tension between the US and Soviet Union."
+    },
+    {
+      "id": "fouc",
+      "title": "Michel Foucault",
+      "date": 1926,
+      "type": "person",
+      "position": [99.5, -0.2, 60.5],
+      "orbitRadius": 116.4,
+      "orbitAngle": 0.546,
+      "orbitSpeed": 0.3,
+      "lat": 46.2,
+      "lng": 1.1,
+      "description": "Power, knowledge, and social institutions."
+    },
+    {
+      "id": "dna",
+      "title": "DNA Double Helix",
+      "date": 1953,
+      "type": "event",
+      "position": [32.9, -1, 108.9],
+      "orbitRadius": 113.8,
+      "orbitAngle": 1.278,
+      "orbitSpeed": 0.3,
+      "lat": 52.2,
+      "lng": 0.1,
+      "description": "The fundamental architecture of biology is mapped. The foundation for genetic engineering, CRISPR, and the biotechnology revolution."
+    },
+    {
+      "id": "moon",
+      "title": "Moon Landing",
+      "date": 1969,
+      "type": "event",
+      "position": [31, -1.7, 111.8],
+      "orbitRadius": 116,
+      "orbitAngle": 1.3,
+      "orbitSpeed": 0.3,
+      "lat": 28.5,
+      "lng": -80.6,
+      "description": "First human beings step onto another celestial body."
+    },
+    {
+      "id": "web",
+      "title": "World Wide Web",
+      "date": 1989,
+      "type": "event",
+      "position": [102.7, -0.3, 45.6],
+      "orbitRadius": 112.3,
+      "orbitAngle": 0.418,
+      "orbitSpeed": 0.3,
+      "lat": 46.2,
+      "lng": 6,
+      "description": "The dawn of global digital connectivity."
     },
     {
       "id": "smartphone",
@@ -1718,6 +1351,19 @@ export const dataset = {
       "lat": 37.3,
       "lng": -122.0,
       "description": "Ubiquitous computing and the democratization of information."
+    },
+    {
+      "id": "ai",
+      "title": "Generative AI",
+      "date": 2023,
+      "type": "event",
+      "position": [6.9, 0.4, 117.1],
+      "orbitRadius": 117.3,
+      "orbitAngle": 1.512,
+      "orbitSpeed": 0.3,
+      "lat": 37.7,
+      "lng": -122.4,
+      "description": "Algorithms successfully mimic human reasoning and creativity."
     },
     {
       "id": "starship",
@@ -1734,470 +1380,181 @@ export const dataset = {
     }
   ],
   "edges": [
-    {
-      "source": "bb",
-      "target": "stars"
-    },
-    {
-      "source": "stars",
-      "target": "earth"
-    },
-    {
-      "source": "earth",
-      "target": "life"
-    },
-    {
-      "source": "life",
-      "target": "ozone"
-    },
-    {
-      "source": "ozone",
-      "target": "cambrian"
-    },
-    {
-      "source": "cambrian",
-      "target": "dino"
-    },
-    {
-      "source": "dino",
-      "target": "asteroid"
-    },
-    {
-      "source": "asteroid",
-      "target": "iceage"
-    },
-    {
-      "source": "iceage",
-      "target": "homo"
-    },
-    {
-      "source": "homo",
-      "target": "fire"
-    },
-    {
-      "source": "fire",
-      "target": "agri"
-    },
-    {
-      "source": "agri",
-      "target": "gilg"
-    },
-    {
-      "source": "agri",
-      "target": "egypt"
-    },
-    {
-      "source": "agri",
-      "target": "indus"
-    },
-    {
-      "source": "egypt",
-      "target": "agri"
-    },
-    {
-      "source": "agri",
-      "target": "vedas"
-    },
-    {
-      "source": "vedas",
-      "target": "budd"
-    },
-    {
-      "source": "agri",
-      "target": "conf"
-    },
-    {
-      "source": "conf",
-      "target": "lao"
-    },
-    {
-      "source": "conf",
-      "target": "sun"
-    },
-    {
-      "source": "sun",
-      "target": "qin"
-    },
-    {
-      "source": "budd",
-      "target": "maurya"
-    },
-    {
-      "source": "agri",
-      "target": "homer"
-    },
-    {
-      "source": "homer",
-      "target": "herac"
-    },
-    {
-      "source": "homer",
-      "target": "parm"
-    },
-    {
-      "source": "homer",
-      "target": "pythag"
-    },
-    {
-      "source": "herac",
-      "target": "soc"
-    },
-    {
-      "source": "parm",
-      "target": "soc"
-    },
-    {
-      "source": "pythag",
-      "target": "plato"
-    },
-    {
-      "source": "soc",
-      "target": "plato"
-    },
-    {
-      "source": "plato",
-      "target": "arist"
-    },
-    {
-      "source": "arist",
-      "target": "alex"
-    },
-    {
-      "source": "persia",
-      "target": "alex"
-    },
-    {
-      "source": "alex",
-      "target": "epic"
-    },
-    {
-      "source": "alex",
-      "target": "zeno"
-    },
-    {
-      "source": "zeno",
-      "target": "aug"
-    },
-    {
-      "source": "aug",
-      "target": "jesus"
-    },
-    {
-      "source": "aug",
-      "target": "epict"
-    },
-    {
-      "source": "epict",
-      "target": "marc"
-    },
-    {
-      "source": "jesus",
-      "target": "augustine"
-    },
-    {
-      "source": "aug",
-      "target": "split"
-    },
-    {
-      "source": "split",
-      "target": "fallrom"
-    },
-    {
-      "source": "fallrom",
-      "target": "muh"
-    },
-    {
-      "source": "muh",
-      "target": "gold"
-    },
-    {
-      "source": "gold",
-      "target": "avic"
-    },
-    {
-      "source": "arist",
-      "target": "avic"
-    },
-    {
-      "source": "avic",
-      "target": "aver"
-    },
-    {
-      "source": "aver",
-      "target": "aquinas"
-    },
-    {
-      "source": "augustine",
-      "target": "aquinas"
-    },
-    {
-      "source": "schism",
-      "target": "aquinas"
-    },
-    {
-      "source": "muh",
-      "target": "mali"
-    },
-    {
-      "source": "fallrom",
-      "target": "plague"
-    },
-    {
-      "source": "mongol",
-      "target": "plague"
-    },
-    {
-      "source": "aquinas",
-      "target": "luther"
-    },
-    {
-      "source": "luther",
-      "target": "print"
-    },
-    {
-      "source": "print",
-      "target": "copern"
-    },
-    {
-      "source": "copern",
-      "target": "gali"
-    },
-    {
-      "source": "gali",
-      "target": "bacon"
-    },
-    {
-      "source": "gali",
-      "target": "desc"
-    },
-    {
-      "source": "print",
-      "target": "col"
-    },
-    {
-      "source": "desc",
-      "target": "spino"
-    },
-    {
-      "source": "desc",
-      "target": "locke"
-    },
-    {
-      "source": "bacon",
-      "target": "newt"
-    },
-    {
-      "source": "desc",
-      "target": "newt"
-    },
-    {
-      "source": "locke",
-      "target": "hume"
-    },
-    {
-      "source": "locke",
-      "target": "rous"
-    },
-    {
-      "source": "rous",
-      "target": "frev"
-    },
-    {
-      "source": "rous",
-      "target": "amrev"
-    },
-    {
-      "source": "hume",
-      "target": "kant"
-    },
-    {
-      "source": "rous",
-      "target": "kant"
-    },
-    {
-      "source": "newt",
-      "target": "kant"
-    },
-    {
-      "source": "kant",
-      "target": "hegel"
-    },
-    {
-      "source": "kant",
-      "target": "schopen"
-    },
-    {
-      "source": "hegel",
-      "target": "marx"
-    },
-    {
-      "source": "schopen",
-      "target": "nietz"
-    },
-    {
-      "source": "newt",
-      "target": "steam"
-    },
-    {
-      "source": "steam",
-      "target": "marx"
-    },
-    {
-      "source": "steam",
-      "target": "darwin"
-    },
-    {
-      "source": "darwin",
-      "target": "nietz"
-    },
-    {
-      "source": "hegel",
-      "target": "kierk"
-    },
-    {
-      "source": "schopen",
-      "target": "freud"
-    },
-    {
-      "source": "nietz",
-      "target": "freud"
-    },
-    {
-      "source": "darwin",
-      "target": "james"
-    },
-    {
-      "source": "kierk",
-      "target": "husserl"
-    },
-    {
-      "source": "husserl",
-      "target": "heideg"
-    },
-    {
-      "source": "heideg",
-      "target": "sartre"
-    },
-    {
-      "source": "nietz",
-      "target": "camus"
-    },
-    {
-      "source": "sartre",
-      "target": "beauv"
-    },
-    {
-      "source": "sartre",
-      "target": "camus"
-    },
-    {
-      "source": "kant",
-      "target": "russell"
-    },
-    {
-      "source": "russell",
-      "target": "witt"
-    },
-    {
-      "source": "newt",
-      "target": "einst"
-    },
-    {
-      "source": "einst",
-      "target": "ww1"
-    },
-    {
-      "source": "einst",
-      "target": "nuke"
-    },
-    {
-      "source": "ww1",
-      "target": "ww2"
-    },
-    {
-      "source": "ww2",
-      "target": "nuke"
-    },
-    {
-      "source": "ww2",
-      "target": "cold"
-    },
-    {
-      "source": "cold",
-      "target": "moon"
-    },
-    {
-      "source": "nietz",
-      "target": "fouc"
-    },
-    {
-      "source": "sartre",
-      "target": "fouc"
-    },
-    {
-      "source": "heideg",
-      "target": "arens"
-    },
-    {
-      "source": "ww2",
-      "target": "arens"
-    },
-    {
-      "source": "darwin",
-      "target": "dna"
-    },
-    {
-      "source": "nuke",
-      "target": "moon"
-    },
-    {
-      "source": "steam",
-      "target": "web"
-    },
-    {
-      "source": "cold",
-      "target": "web"
-    },
-    {
-      "source": "web",
-      "target": "ai"
-    },
-    {
-      "source": "qin",
-      "target": "han"
-    },
-    {
-      "source": "fallrom",
-      "target": "byz"
-    },
-    {
-      "source": "muh",
-      "target": "tang"
-    },
-    {
-      "source": "tang",
-      "target": "song"
-    },
-    {
-      "source": "byz",
-      "target": "ottoman"
-    },
-    {
-      "source": "frev",
-      "target": "napoleon"
-    },
-    {
-      "source": "steam",
-      "target": "elec"
-    },
-    {
-      "source": "web",
-      "target": "smartphone"
-    },
-    {
-      "source": "ai",
-      "target": "starship"
-    }
+    // === Cosmic & Prehistoric Chain ===
+    { "source": "bb", "target": "stars" },
+    { "source": "stars", "target": "earth" },
+    { "source": "earth", "target": "life" },
+    { "source": "life", "target": "ozone" },
+    { "source": "ozone", "target": "cambrian" },
+    { "source": "cambrian", "target": "dino" },
+    { "source": "dino", "target": "asteroid" },
+    { "source": "asteroid", "target": "iceage" },
+    // FIX: fire (1M BCE) predates homo sapiens (300k BCE) — both descend from iceage
+    { "source": "iceage", "target": "fire" },
+    { "source": "iceage", "target": "homo" },
+    { "source": "fire", "target": "agri" },
+    { "source": "homo", "target": "agri" },
+
+    // === Ancient Civilizations ===
+    { "source": "agri", "target": "egypt" },
+    { "source": "agri", "target": "indus" },
+    { "source": "agri", "target": "gilg" },
+    // FIX: removed circular egypt → agri
+    { "source": "egypt", "target": "hamm" },
+    { "source": "gilg", "target": "hamm" },
+    { "source": "agri", "target": "vedas" },
+    { "source": "indus", "target": "vedas" },
+
+    // === Axial Age: Greek World ===
+    { "source": "agri", "target": "homer" },
+    { "source": "homer", "target": "herac" },
+    { "source": "homer", "target": "parm" },
+    { "source": "homer", "target": "pythag" },
+    { "source": "herac", "target": "soc" },
+    { "source": "parm", "target": "soc" },
+    { "source": "pythag", "target": "plato" },
+    { "source": "soc", "target": "plato" },
+    { "source": "plato", "target": "arist" },
+    { "source": "arist", "target": "alex" },
+    { "source": "persia", "target": "alex" },
+    { "source": "alex", "target": "epic" },
+    { "source": "alex", "target": "zeno" },
+    { "source": "alex", "target": "maurya" },
+
+    // === Axial Age: East Asia ===
+    { "source": "vedas", "target": "budd" },
+    { "source": "budd", "target": "maurya" },
+    { "source": "agri", "target": "conf" },
+    { "source": "conf", "target": "lao" },
+    { "source": "lao", "target": "conf" },
+    { "source": "conf", "target": "sun" },
+    { "source": "sun", "target": "qin" },
+    { "source": "qin", "target": "han" },
+
+    // === Rome ===
+    { "source": "zeno", "target": "aug" },
+    { "source": "aug", "target": "jesus" },
+    { "source": "aug", "target": "epict" },
+    { "source": "epict", "target": "marc" },
+    { "source": "jesus", "target": "augustine" },
+    { "source": "aug", "target": "split" },
+    { "source": "split", "target": "fallrom" },
+    { "source": "fallrom", "target": "byz" },
+
+    // === Medieval World ===
+    { "source": "fallrom", "target": "muh" },
+    { "source": "muh", "target": "gold" },
+    { "source": "muh", "target": "tang" },
+    { "source": "tang", "target": "song" },
+    { "source": "gold", "target": "avic" },
+    { "source": "arist", "target": "avic" },
+    { "source": "avic", "target": "aver" },
+    { "source": "aver", "target": "aquinas" },
+    { "source": "augustine", "target": "aquinas" },
+    { "source": "schism", "target": "aquinas" },
+    { "source": "muh", "target": "mali" },
+    { "source": "mali", "target": "gold" },
+    { "source": "fallrom", "target": "plague" },
+    { "source": "mongol", "target": "plague" },
+    // NEW: Song Dynasty invented printing before Gutenberg
+    { "source": "song", "target": "print" },
+    // NEW: Magna Carta connects medieval law to Enlightenment liberalism
+    { "source": "hamm", "target": "magna" },
+    { "source": "magna", "target": "locke" },
+    { "source": "magna", "target": "hobbes" },
+
+    // === Renaissance & Reformation ===
+    { "source": "plague", "target": "renaissance" },
+    { "source": "aquinas", "target": "renaissance" },
+    { "source": "byz", "target": "renaissance" },
+    { "source": "renaissance", "target": "mach" },
+    { "source": "ottoman", "target": "renaissance" },
+    // FIX: print → luther (not luther → print)
+    { "source": "print", "target": "luther" },
+    { "source": "print", "target": "col" },
+    { "source": "print", "target": "copern" },
+    { "source": "renaissance", "target": "copern" },
+    { "source": "copern", "target": "gali" },
+    { "source": "gali", "target": "bacon" },
+    { "source": "gali", "target": "desc" },
+    // NEW: Machiavelli's influence chain
+    { "source": "mach", "target": "hobbes" },
+    { "source": "mach", "target": "locke" },
+    // NEW: Columbus feeds into the Enlightenment via colonial wealth and new worldviews
+    { "source": "col", "target": "locke" },
+    { "source": "col", "target": "rous" },
+
+    // === Scientific Revolution & Enlightenment ===
+    { "source": "desc", "target": "spino" },
+    { "source": "desc", "target": "locke" },
+    { "source": "bacon", "target": "newt" },
+    { "source": "desc", "target": "newt" },
+    { "source": "locke", "target": "hume" },
+    { "source": "locke", "target": "rous" },
+    { "source": "locke", "target": "smith" },
+    { "source": "locke", "target": "amrev" },
+    { "source": "rous", "target": "frev" },
+    { "source": "rous", "target": "amrev" },
+    { "source": "hume", "target": "kant" },
+    { "source": "rous", "target": "kant" },
+    { "source": "newt", "target": "kant" },
+    { "source": "kant", "target": "hegel" },
+    { "source": "kant", "target": "schopen" },
+    { "source": "kant", "target": "russell" },
+
+    // === Industrial & 19th Century ===
+    { "source": "newt", "target": "steam" },
+    { "source": "steam", "target": "marx" },
+    { "source": "steam", "target": "darwin" },
+    { "source": "steam", "target": "elec" },
+    // NEW: Smith → Marx (Marx's critique is a direct response to Smith)
+    { "source": "smith", "target": "marx" },
+    { "source": "hegel", "target": "marx" },
+    { "source": "hegel", "target": "kierk" },
+    { "source": "schopen", "target": "nietz" },
+    { "source": "darwin", "target": "nietz" },
+    { "source": "schopen", "target": "freud" },
+    { "source": "nietz", "target": "freud" },
+    { "source": "darwin", "target": "james" },
+    { "source": "kierk", "target": "husserl" },
+    { "source": "husserl", "target": "heideg" },
+    { "source": "russell", "target": "witt" },
+    // NEW: Napoleon's influence on 19th century thought
+    { "source": "frev", "target": "napoleon" },
+    { "source": "napoleon", "target": "hegel" },
+    { "source": "napoleon", "target": "kierk" },
+    { "source": "napoleon", "target": "marx" },
+    // NEW: Electrical power as industrial catalyst
+    { "source": "elec", "target": "einst" },
+    { "source": "elec", "target": "ww1" },
+
+    // === 20th Century ===
+    { "source": "heideg", "target": "sartre" },
+    { "source": "nietz", "target": "camus" },
+    { "source": "sartre", "target": "beauv" },
+    { "source": "sartre", "target": "camus" },
+    { "source": "nietz", "target": "fouc" },
+    { "source": "sartre", "target": "fouc" },
+    { "source": "heideg", "target": "arens" },
+    { "source": "ww2", "target": "arens" },
+    { "source": "ww1", "target": "ww2" },
+    { "source": "ww2", "target": "nuke" },
+    // FIX: einst → nuke (via E=mc²), not einst → ww1
+    { "source": "einst", "target": "nuke" },
+    { "source": "nuke", "target": "cold" },
+    { "source": "ww2", "target": "cold" },
+    { "source": "cold", "target": "moon" },
+    { "source": "darwin", "target": "dna" },
+    { "source": "dna", "target": "ai" },
+    // NEW: Cold War space race → Starship lineage
+    { "source": "moon", "target": "starship" },
+    { "source": "cold", "target": "web" },
+    { "source": "elec", "target": "web" },
+    { "source": "web", "target": "ai" },
+    { "source": "web", "target": "smartphone" },
+    // FIX: ai and starship are concurrent, not causally linked — both descend from their own parents
+    { "source": "smartphone", "target": "ai" },
+    { "source": "ai", "target": "starship" }
   ],
   "eras": [
     {
