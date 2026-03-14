@@ -103,6 +103,19 @@ export default function Node({ data, onClickNode, isGlowing, isLabelVisible }) {
         lockX={false}
         lockY={false}
         lockZ={false}
+        onClick={(e) => {
+          e.stopPropagation()
+          onClickNode(data)
+        }}
+        onPointerOver={(e) => {
+          e.stopPropagation()
+          setHover(true)
+          document.body.style.cursor = 'pointer'
+        }}
+        onPointerOut={(e) => {
+          setHover(false)
+          document.body.style.cursor = 'default'
+        }}
       >
         <Text
           ref={textRef}
@@ -121,6 +134,19 @@ export default function Node({ data, onClickNode, isGlowing, isLabelVisible }) {
       <Billboard
         position={[0, 0.25, 0]}
         follow={true}
+        onClick={(e) => {
+          e.stopPropagation()
+          onClickNode(data)
+        }}
+        onPointerOver={(e) => {
+          e.stopPropagation()
+          setHover(true)
+          document.body.style.cursor = 'pointer'
+        }}
+        onPointerOut={(e) => {
+          setHover(false)
+          document.body.style.cursor = 'default'
+        }}
       >
         <Text
           ref={subTextRef}
