@@ -630,29 +630,6 @@ body, html {
   z-index: 50;
 }
 
-.hud-corners {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  border: 1px solid rgba(74, 144, 226, 0.1);
-  pointer-events: none;
-}
-
-.hud-corners::before, .hud-corners::after {
-  content: '';
-  position: absolute;
-  width: 40px;
-  height: 40px;
-}
-
-.hud-corners::before {
-  top: -1px; left: -1px;
-  border-top: 2px solid var(--color-event);
-  border-left: 2px solid var(--color-event);
-}
-
 .hud-corners::after {
   bottom: -1px; right: -1px;
   border-bottom: 2px solid var(--color-event);
@@ -661,10 +638,10 @@ body, html {
 
 .section-switcher {
   position: absolute;
-  top: 40px;
-  right: 480px; /* Offset to not overlap with overlay */
+  top: clamp(20px, 4vh, 40px);
+  right: clamp(20px, 5vw, 480px); /* Adjust to avoid overlay if needed */
   display: flex;
-  gap: 10px;
+  gap: clamp(6px, 1vw, 10px);
   pointer-events: auto;
 }
 
@@ -674,6 +651,7 @@ body, html {
     bottom: 120px;
     right: 50%;
     transform: translateX(50%);
+    z-index: 60;
   }
 }
 
@@ -711,8 +689,8 @@ body, html {
 /* --- Camera Controls --- */
 .camera-controls {
   position: absolute;
-  bottom: 40px;
-  right: 40px;
+  bottom: clamp(20px, 4vh, 40px);
+  right: clamp(20px, 4vw, 40px);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -723,28 +701,28 @@ body, html {
 .control-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   background: rgba(10, 15, 30, 0.4);
   backdrop-filter: blur(12px);
-  padding: 6px;
+  padding: 8px;
   border: 1px solid var(--glass-border);
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .ctrl-btn, .mode-btn {
-  width: 36px;
-  height: 36px;
+  width: clamp(36px, 8vw, 44px); /* Larger touch targets on mobile */
+  height: clamp(36px, 8vw, 44px);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'JetBrains Mono', monospace;
   font-weight: 700;
-  font-size: 14px;
+  font-size: clamp(14px, 4vw, 16px);
   transition: all 0.2s ease;
 }
 
@@ -765,9 +743,11 @@ body, html {
     bottom: 120px;
     right: 20px;
     flex-direction: row;
+    z-index: 60;
   }
   
   .control-group {
     flex-direction: row;
+    gap: 12px;
   }
 }

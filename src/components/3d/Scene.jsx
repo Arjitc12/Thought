@@ -46,68 +46,80 @@ function CameraController({ activeNode, searchData, cameraMode, zoomAction, onZo
   useFrame(() => {
     if (!controls) return
 
+    const { width, height: viewHeight } = camera
+    const aspect = window.innerWidth / window.innerHeight
+    const isMobile = window.innerWidth <= 768
+    const isPortrait = aspect < 1
+
     // Default target is the center
     targetVec.set(0, 0, 0)
-    const isMobile = window.innerWidth <= 768
     
     // Rotation compensation (SolarSystemGroup is rotated Math.PI / 8 on X)
     const planeRotationX = Math.PI / 8
 
     if (activeNode) {
-      // Node position is in local space of SolarSystemGroup, need to transform to world
       const nodePos = new THREE.Vector3(...activeNode.position)
-      // Apply the same rotation as SolarSystemGroup to find world position
       nodePos.applyAxisAngle(new THREE.Vector3(1, 0, 0), planeRotationX)
-      
       const outwardDir = nodePos.clone().normalize()
       
+      // Pull back more on portrait/mobile to avoid clipping
+      const mobileMultiplier = isPortrait ? 1.5 : 1.1
+      const baseZoom = zoomOffsetRef.current * (isMobile ? 1.2 : 1.0)
+
       if (cameraMode === 'BIRDSEYE') {
-        const height = (isMobile ? 180 : 150) + zoomOffsetRef.current
-        // Offset camera directly "above" the node relative to the tilted plane
+        const h = ((isMobile ? 220 : 150) * mobileMultiplier) + baseZoom
         const upDir = new THREE.Vector3(0, 1, 0).applyAxisAngle(new THREE.Vector3(1, 0, 0), planeRotationX)
-        vec.copy(nodePos).add(upDir.multiplyScalar(height))
+        vec.copy(nodePos).add(upDir.multiplyScalar(h))
         targetVec.copy(nodePos)
       } else if (cameraMode === 'ORBIT') {
-        const dist = (isMobile ? 130 : 110) + zoomOffsetRef.current
+        const dist = (((isMobile ? 160 : 110) * mobileMultiplier) + baseZoom)
         vec.copy(nodePos).add(outwardDir.multiplyScalar(dist))
-        vec.y += 60
+        vec.y += isMobile ? 80 : 60
         targetVec.copy(nodePos)
       } else {
         // FOLLOW
         if (nodePos.length() < 0.1) {
-          vec.set(0, isMobile ? 40 : 30, 60 + zoomOffsetRef.current)
+          vec.set(0, isMobile ? 50 : 30, (70 * mobileMultiplier) + baseZoom)
         } else {
-          const dist = (isMobile ? 60 : 50) + zoomOffsetRef.current
+          const dist = ((isMobile ? 80 : 50) * mobileMultiplier) + baseZoom
           vec.copy(nodePos).add(outwardDir.multiplyScalar(dist))
-          vec.y += isMobile ? 25 : 20
+          vec.y += isMobile ? 40 : 20
         }
         targetVec.copy(nodePos)
       }
+
+      // Offset target higher on mobile to clear bottom sheets
+      if (isMobile && !isPortrait) targetVec.y -= 5
+      if (isMobile && isPortrait) {
+        // Move the node to the upper half of the screen
+        const offset = new THREE.Vector3(0, -15, 0)
+        targetVec.add(offset)
+      }
+
     } else if (searchData) {
       const searchPos = new THREE.Vector3(...searchData.position)
       searchPos.applyAxisAngle(new THREE.Vector3(1, 0, 0), planeRotationX)
       const outwardDir = searchPos.clone().normalize()
-      const dist = (isMobile ? 90 : 80) + zoomOffsetRef.current
+      const dist = (isMobile ? 120 : 80) + zoomOffsetRef.current
       vec.copy(searchPos).add(outwardDir.multiplyScalar(dist))
-      vec.y += isMobile ? 50 : 40
+      vec.y += isMobile ? 70 : 40
       targetVec.copy(searchPos)
+      if (isMobile && isPortrait) targetVec.y -= 25
+
     } else {
-      // Home state - Respect current pan/orbit state
+      // Home state
       targetVec.copy(controls.target)
-      
       const currentCamDir = new THREE.Vector3().subVectors(camera.position, controls.target).normalize()
       
       if (cameraMode === 'BIRDSEYE') {
-        const height = 400 + zoomOffsetRef.current
-        vec.set(0, height, 0.1) // Still mostly top-down for birds-eye
+        const h = (isPortrait ? 600 : 400) + zoomOffsetRef.current
+        vec.set(0, h, 0.1)
         targetVec.set(0, 0, 0)
       } else if (cameraMode === 'ORBIT') {
-        // Maintain direction but adjust distance
-        const dist = 350 + zoomOffsetRef.current
+        const dist = (isPortrait ? 500 : 350) + zoomOffsetRef.current
         vec.copy(controls.target).add(currentCamDir.multiplyScalar(dist))
       } else {
-        // Standard Global: allow some manual freedom
-        const dist = 220 + zoomOffsetRef.current
+        const dist = (isPortrait ? 350 : 220) + zoomOffsetRef.current
         vec.copy(controls.target).add(currentCamDir.multiplyScalar(dist))
       }
     }
