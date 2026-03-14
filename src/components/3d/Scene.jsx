@@ -1,9 +1,83 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useMemo, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { OrbitControls, Stars, Text, Billboard } from '@react-three/drei'
+import { OrbitControls, Stars, Text, Billboard, Float } from '@react-three/drei'
 import * as THREE from 'three'
 import Node from './Node'
 import Edge from './Edge'
+
+function ShootingStars() {
+  const [stars, setStars] = useState([])
+  const lastSpawnTime = useRef(0)
+
+  useFrame((state) => {
+    const time = state.clock.getElapsedTime()
+
+    // Spawn a new star every 3-7 seconds
+    if (time - lastSpawnTime.current > Math.random() * 4 + 3) {
+      const id = THREE.MathUtils.generateUUID()
+      
+      // Random position on a large shell far away
+      const radius = 600 + Math.random() * 200
+      const theta = Math.random() * Math.PI * 2
+      const phi = Math.random() * Math.PI
+      
+      const startPos = new THREE.Vector3().setFromSphericalCoords(radius, phi, theta)
+      
+      // Random direction (mostly tangential to keep them in view)
+      const targetPos = new THREE.Vector3().setFromSphericalCoords(radius, phi + (Math.random() - 0.5) * 0.5, theta + (Math.random() - 0.5) * 0.5)
+      const direction = new THREE.Vector3().subVectors(targetPos, startPos).normalize()
+      
+      const star = {
+        id,
+        pos: startPos,
+        dir: direction,
+        speed: 15 + Math.random() * 25,
+        life: 0,
+        maxLife: 2 + Math.random() * 2,
+        opacity: 0
+      }
+      
+      setStars((prev) => [...prev, star])
+      lastSpawnTime.current = time
+    }
+
+    // Update existing stars
+    setStars((prev) => 
+      prev
+        .map((s) => {
+          const newLife = s.life + 0.016 // Assuming ~60fps
+          const progress = newLife / s.maxLife
+          
+          // Fade in/out
+          const opacity = progress < 0.2 ? progress * 5 : progress > 0.8 ? (1 - progress) * 5 : 1
+          
+          return {
+            ...s,
+            pos: s.pos.clone().add(s.dir.clone().multiplyScalar(s.speed * 0.1)),
+            life: newLife,
+            opacity: Math.max(0, opacity)
+          }
+        })
+        .filter((s) => s.life < s.maxLife)
+    )
+  })
+
+  return (
+    <group>
+      {stars.map((s) => (
+        <mesh key={s.id} position={s.pos}>
+          <boxGeometry args={[0.2, 0.2, 5 + Math.random() * 10]} />
+          <meshBasicMaterial 
+            color="#ffffff" 
+            transparent 
+            opacity={s.opacity * 0.6} 
+            blending={THREE.AdditiveBlending}
+          />
+        </mesh>
+      ))}
+    </group>
+  )
+}
 
 function CameraController({ activeNode, searchData, cameraMode, activeZoom, resetTrigger }) {
   const { camera, controls } = useThree()
@@ -226,6 +300,7 @@ export default function Scene({ activeNode, setActiveNode, searchData, dataset, 
       <ambientLight intensity={0.2} />
       <pointLight position={[10, 10, 10]} intensity={1.5} />
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+      <ShootingStars />
       
       <OrbitControls 
         makeDefault 
