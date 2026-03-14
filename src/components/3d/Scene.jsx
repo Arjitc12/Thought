@@ -32,16 +32,7 @@ function CameraController({ activeNode, searchData, cameraMode, zoomAction, onZo
     return () => controls.removeEventListener('start', handleStart)
   }, [controls])
 
-  // Handle manual zoom triggers
-  useEffect(() => {
-    if (zoomAction) {
-      const step = 5 // Finer zoom steps
-      if (zoomAction === 'IN') zoomOffsetRef.current -= step
-      if (zoomAction === 'OUT') zoomOffsetRef.current += step
-      animatingRef.current = true // Re-trigger smoothing
-      onZoomComplete()
-    }
-  }, [zoomAction, onZoomComplete])
+  // Continuous Zoom logic handled in useFrame
 
   useFrame(() => {
     if (!controls) return
@@ -124,11 +115,19 @@ function CameraController({ activeNode, searchData, cameraMode, zoomAction, onZo
       }
     }
 
+    // Handle continuous zoom state
+    if (activeZoom) {
+      const zoomSpeed = isMobile ? 1.5 : 2.5 // Smooth speed
+      if (activeZoom === 'IN') zoomOffsetRef.current -= zoomSpeed
+      if (activeZoom === 'OUT') zoomOffsetRef.current += zoomSpeed
+      animatingRef.current = true
+    }
+
     if (animatingRef.current) {
       camera.position.lerp(vec, 0.12)
       controls.target.lerp(targetVec, 0.12)
       
-      if (camera.position.distanceTo(vec) < 0.1 && controls.target.distanceTo(targetVec) < 0.1) {
+      if (camera.position.distanceTo(vec) < 0.1 && controls.target.distanceTo(targetVec) < 0.1 && !activeZoom) {
         animatingRef.current = false
       }
     }
@@ -141,7 +140,7 @@ function CameraController({ activeNode, searchData, cameraMode, zoomAction, onZo
   return null
 }
 
-export default function Scene({ activeNode, setActiveNode, searchData, dataset, cameraMode, zoomAction, onZoomComplete }) {
+export default function Scene({ activeNode, setActiveNode, searchData, dataset, cameraMode, activeZoom }) {
   // If there's an active node, compute its entire causal chain (forward and backward)
   let activeEdgesWithNodes = []
   
@@ -216,8 +215,7 @@ export default function Scene({ activeNode, setActiveNode, searchData, dataset, 
         activeNode={activeNode} 
         searchData={searchData} 
         cameraMode={cameraMode}
-        zoomAction={zoomAction}
-        onZoomComplete={onZoomComplete}
+        activeZoom={activeZoom}
       />
 
       <SolarSystemGroup 

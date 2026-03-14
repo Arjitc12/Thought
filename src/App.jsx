@@ -61,8 +61,7 @@ export default function App() {
           searchData={searchData} 
           dataset={currentDataset}
           cameraMode={cameraMode}
-          zoomAction={zoomAction}
-          onZoomComplete={() => setZoomAction(null)}
+          activeZoom={zoomAction}
         />
       </div>
 
@@ -130,14 +129,18 @@ export default function App() {
           <div className="control-group zoom-group">
             <button 
               className="ctrl-btn" 
-              onClick={() => { haptics.light(); setZoomAction('IN'); }}
+              onPointerDown={() => { haptics.light(); setZoomAction('IN'); }}
+              onPointerUp={() => setZoomAction(null)}
+              onPointerLeave={() => setZoomAction(null)}
               title="Zoom In"
             >
               +
             </button>
             <button 
               className="ctrl-btn" 
-              onClick={() => { haptics.light(); setZoomAction('OUT'); }}
+              onPointerDown={() => { haptics.light(); setZoomAction('OUT'); }}
+              onPointerUp={() => setZoomAction(null)}
+              onPointerLeave={() => setZoomAction(null)}
               title="Zoom Out"
             >
               -
