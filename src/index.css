@@ -462,6 +462,8 @@ body, html {
     padding: 24px 20px env(safe-area-inset-bottom, 24px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-bottom: none;
+    border-right: none; /* Added */
+    border-top: 1px solid var(--glass-border); /* Added */
     background: rgba(10, 15, 30, 0.7);
     backdrop-filter: blur(32px) saturate(200%);
     -webkit-backdrop-filter: blur(32px) saturate(200%);
@@ -469,6 +471,33 @@ body, html {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .overlay-panel.bottom-sheet.minimized {
+    max-height: 100px;
+    overflow: hidden;
+    padding-top: 10px;
+  }
+
+  .sheet-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  .minimize-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #88ccff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 8px;
+    cursor: pointer;
+    letter-spacing: 1px;
   }
 
   .drag-handle {
@@ -636,6 +665,10 @@ body, html {
   border-right: 2px solid var(--color-event);
 }
 
+.title-layer.mobile-hidden {
+  display: none !important;
+}
+
 .section-switcher {
   position: absolute;
   top: clamp(20px, 4vh, 40px);
@@ -744,10 +777,19 @@ body, html {
     right: 20px;
     flex-direction: row;
     z-index: 60;
+    gap: 12px;
   }
   
   .control-group {
     flex-direction: row;
-    gap: 12px;
+    gap: 8px;
+    padding: 4px;
+  }
+
+  /* Ensure section switcher is higher and doesn't overlap controls */
+  .section-switcher {
+    bottom: auto;
+    top: 20px;
+    z-index: 70;
   }
 }

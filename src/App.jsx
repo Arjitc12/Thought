@@ -46,6 +46,8 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [])
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
+
   return (
     <div className="app-container">
       {/* Global Visual Overlays */}
@@ -95,7 +97,7 @@ export default function App() {
           </button>
         </div>
 
-        <div className="title-layer">
+        <div className={`title-layer ${(isMobile && activeNode) ? 'mobile-hidden' : ''}`}>
           <div className="metadata">
             <span>SECTOR: {activeSection.toUpperCase()}</span>
             <span>SYSTEM_ONLINE: TRUE</span>

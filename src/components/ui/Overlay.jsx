@@ -4,6 +4,7 @@ import MiniMap from './MiniMap'
 import { haptics } from '../../utils/haptics'
 
 export default function Overlay({ activeNode, setActiveNode, dataset }) {
+  const [minimized, setMinimized] = React.useState(false)
   const dragControls = useDragControls()
 
   // Find causes highlighting this node
@@ -25,6 +26,7 @@ export default function Overlay({ activeNode, setActiveNode, dataset }) {
   useEffect(() => {
     if (activeNode) {
       haptics.light()
+      setMinimized(false) // Reset on new node
     }
   }, [activeNode])
 
@@ -54,10 +56,18 @@ export default function Overlay({ activeNode, setActiveNode, dataset }) {
               handleClose()
             }
           }}
-          className={`overlay-panel ${isMobile ? 'bottom-sheet' : ''}`}
+          className={`overlay-panel ${isMobile ? 'bottom-sheet' : ''} ${minimized ? 'minimized' : ''}`}
         >
           {isMobile && (
-            <div className="drag-handle" />
+            <div className="sheet-controls">
+              <div className="drag-handle" />
+              <button 
+                className="minimize-toggle" 
+                onClick={() => { haptics.light(); setMinimized(!minimized); }}
+              >
+                {minimized ? '↑ VIEW DETAILS' : '↓ MINIMIZE'}
+              </button>
+            </div>
           )}
           
           <button className="close-btn" onClick={handleClose}>✕</button>
