@@ -5,13 +5,24 @@ import * as THREE from 'three'
 import Node from './Node'
 import Edge from './Edge'
 
-function CameraController({ activeNode, searchData, cameraMode, zoomAction, onZoomComplete }) {
+function CameraController({ activeNode, searchData, cameraMode, activeZoom, resetTrigger }) {
   const { camera, controls } = useThree()
   const vec = new THREE.Vector3()
   const targetVec = new THREE.Vector3()
   const animatingRef = useRef(false)
   const lastTargetIdRef = useRef(null)
   const zoomOffsetRef = useRef(0)
+
+  // Hard Reset Logic
+  useEffect(() => {
+    if (resetTrigger > 0) {
+      zoomOffsetRef.current = 0
+      animatingRef.current = true
+      // Snap to a safe position if things are really broken
+      camera.position.set(0, 100, 200)
+      controls.target.set(0, 0, 0)
+    }
+  }, [resetTrigger, camera, controls])
 
   useEffect(() => {
     // Detect when the user clicks a new target to trigger a fresh camera flight
@@ -51,7 +62,10 @@ function CameraController({ activeNode, searchData, cameraMode, zoomAction, onZo
     if (activeNode) {
       const nodePos = new THREE.Vector3(...activeNode.position)
       nodePos.applyAxisAngle(new THREE.Vector3(1, 0, 0), planeRotationX)
-      const outwardDir = nodePos.clone().normalize()
+      
+      let outwardDir = nodePos.clone()
+      if (outwardDir.length() < 0.001) outwardDir.set(0, 0, 1)
+      else outwardDir.normalize()
       
       // Pull back more on portrait/mobile to avoid clipping
       const mobileMultiplier = isPortrait ? 1.5 : 1.1
@@ -68,14 +82,9 @@ function CameraController({ activeNode, searchData, cameraMode, zoomAction, onZo
         vec.y += isMobile ? 80 : 60
         targetVec.copy(nodePos)
       } else {
-        // FOLLOW
-        if (nodePos.length() < 0.1) {
-          vec.set(0, isMobile ? 50 : 30, (70 * mobileMultiplier) + baseZoom)
-        } else {
-          const dist = ((isMobile ? 80 : 50) * mobileMultiplier) + baseZoom
-          vec.copy(nodePos).add(outwardDir.multiplyScalar(dist))
-          vec.y += isMobile ? 40 : 20
-        }
+        const dist = (((isMobile ? 100 : 70) * mobileMultiplier) + baseZoom)
+        vec.copy(nodePos).add(outwardDir.multiplyScalar(dist))
+        vec.y += isMobile ? 25 : 15
         targetVec.copy(nodePos)
       }
 
@@ -90,7 +99,11 @@ function CameraController({ activeNode, searchData, cameraMode, zoomAction, onZo
     } else if (searchData) {
       const searchPos = new THREE.Vector3(...searchData.position)
       searchPos.applyAxisAngle(new THREE.Vector3(1, 0, 0), planeRotationX)
-      const outwardDir = searchPos.clone().normalize()
+      
+      let outwardDir = searchPos.clone()
+      if (outwardDir.length() < 0.001) outwardDir.set(0, 0, 1)
+      else outwardDir.normalize()
+
       const dist = (isMobile ? 120 : 80) + zoomOffsetRef.current
       vec.copy(searchPos).add(outwardDir.multiplyScalar(dist))
       vec.y += isMobile ? 70 : 40
@@ -99,19 +112,21 @@ function CameraController({ activeNode, searchData, cameraMode, zoomAction, onZo
 
     } else {
       // Home state
-      targetVec.copy(controls.target)
-      const currentCamDir = new THREE.Vector3().subVectors(camera.position, controls.target).normalize()
+      targetVec.set(0, 0, 0) // Gradually return to center
+      
+      let currentCamDir = new THREE.Vector3().subVectors(camera.position, controls.target)
+      if (currentCamDir.length() < 0.001) currentCamDir.set(0, 0, 1)
+      else currentCamDir.normalize()
       
       if (cameraMode === 'BIRDSEYE') {
         const h = (isPortrait ? 600 : 400) + zoomOffsetRef.current
         vec.set(0, h, 0.1)
-        targetVec.set(0, 0, 0)
       } else if (cameraMode === 'ORBIT') {
         const dist = (isPortrait ? 500 : 350) + zoomOffsetRef.current
-        vec.copy(controls.target).add(currentCamDir.multiplyScalar(dist))
+        vec.addVectors(targetVec, currentCamDir.multiplyScalar(dist))
       } else {
         const dist = (isPortrait ? 350 : 220) + zoomOffsetRef.current
-        vec.copy(controls.target).add(currentCamDir.multiplyScalar(dist))
+        vec.addVectors(targetVec, currentCamDir.multiplyScalar(dist))
       }
     }
 
@@ -150,7 +165,7 @@ function CameraController({ activeNode, searchData, cameraMode, zoomAction, onZo
   return null
 }
 
-export default function Scene({ activeNode, setActiveNode, searchData, dataset, cameraMode, activeZoom }) {
+export default function Scene({ activeNode, setActiveNode, searchData, dataset, cameraMode, activeZoom, resetTrigger }) {
   // If there's an active node, compute its entire causal chain (forward and backward)
   let activeEdgesWithNodes = []
   
@@ -226,6 +241,7 @@ export default function Scene({ activeNode, setActiveNode, searchData, dataset, 
         searchData={searchData} 
         cameraMode={cameraMode}
         activeZoom={activeZoom}
+        resetTrigger={resetTrigger}
       />
 
       <SolarSystemGroup 

@@ -14,6 +14,7 @@ export default function App() {
   const [searchData, setSearchData] = useState(null)
   const [cameraMode, setCameraMode] = useState('FOLLOW') // FOLLOW, ORBIT, BIRDSEYE
   const [zoomAction, setZoomAction] = useState(null) // 'IN', 'OUT', or null
+  const [resetTrigger, setResetTrigger] = useState(0)
 
   const currentDataset = activeSection === 'history' ? dataset : religionsDataset
 
@@ -62,6 +63,7 @@ export default function App() {
           dataset={currentDataset}
           cameraMode={cameraMode}
           activeZoom={zoomAction}
+          resetTrigger={resetTrigger}
         />
       </div>
 
@@ -113,11 +115,12 @@ export default function App() {
                JOURNEY
             </button>
             
-            {(activeNode || searchData) && (
+            {(activeNode || searchData || resetTrigger > 0) && (
               <button className="reset-btn" onClick={() => { 
-                  haptics.medium();
+                  haptics.heavy();
                   setActiveNode(null); 
-                  setSearchData(null); 
+                  setSearchData(null);
+                  setResetTrigger(prev => prev + 1);
                 }}>
                 ↺ RESET_VIEW
               </button>
