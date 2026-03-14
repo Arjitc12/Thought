@@ -104,7 +104,7 @@ export default function App() {
                 const startNode = currentDataset.nodes[0];
                 handleNodeSelect(startNode);
               }}>
-              ▶ INITIALIZE_JOURNEY
+               JOURNEY
             </button>
             
             {(activeNode || searchData) && (
