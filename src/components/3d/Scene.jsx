@@ -115,11 +115,21 @@ function CameraController({ activeNode, searchData, cameraMode, zoomAction, onZo
       }
     }
 
-    // Handle continuous zoom state
+    // Handle continuous zoom state with strict limits
     if (activeZoom) {
-      const zoomSpeed = isMobile ? 1.5 : 2.5 // Smooth speed
+      const zoomSpeed = isMobile ? 1.5 : 2.5
+      const prevOffset = zoomOffsetRef.current
+      
       if (activeZoom === 'IN') zoomOffsetRef.current -= zoomSpeed
       if (activeZoom === 'OUT') zoomOffsetRef.current += zoomSpeed
+      
+      // Safety Limits
+      // Don't let the offset get so small that base distances become negative
+      // Minimum offset to prevent clipping (node-specific)
+      const minOffset = -120 
+      const maxOffset = 1000
+      zoomOffsetRef.current = THREE.MathUtils.clamp(zoomOffsetRef.current, minOffset, maxOffset)
+      
       animatingRef.current = true
     }
 

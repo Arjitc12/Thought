@@ -131,6 +131,7 @@ export default function App() {
               className="ctrl-btn" 
               onPointerDown={() => { haptics.light(); setZoomAction('IN'); }}
               onPointerUp={() => setZoomAction(null)}
+              onPointerCancel={() => setZoomAction(null)}
               onPointerLeave={() => setZoomAction(null)}
               title="Zoom In"
             >
@@ -140,6 +141,7 @@ export default function App() {
               className="ctrl-btn" 
               onPointerDown={() => { haptics.light(); setZoomAction('OUT'); }}
               onPointerUp={() => setZoomAction(null)}
+              onPointerCancel={() => setZoomAction(null)}
               onPointerLeave={() => setZoomAction(null)}
               title="Zoom Out"
             >
