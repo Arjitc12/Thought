@@ -2,7 +2,13 @@
 
 An interactive 3D visualization of history's major turning points, rendered as a rotating solar system. Explore philosophical lineages, scientific breakthroughs, and civilizational shifts from the Big Bang to the modern day — all connected by glowing causality chains.
 
-![Solar System View](./public/screenshot.png)
+## Visual Overview
+
+### Global Cosmic Chronology (Zoomed Out)
+![Cosmic Chronology](./public/zoom_out.png)
+
+### High-Fidelity Detail (Zoomed In)
+![The Renaissance Node](./public/zoom_in.png)
 
 ---
 
