@@ -203,7 +203,14 @@ export default function Scene({ activeNode, setActiveNode, searchData, dataset, 
       <pointLight position={[10, 10, 10]} intensity={1.5} />
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
       
-      <OrbitControls makeDefault enableDamping dampingFactor={0.05} />
+      <OrbitControls 
+        makeDefault 
+        enableDamping 
+        dampingFactor={0.05}
+        rotateSpeed={window.innerWidth <= 768 ? 0.6 : 1.0} // Slower rotation on mobile for control
+        minDistance={5}
+        maxDistance={1000}
+      />
       
       <CameraController 
         activeNode={activeNode} 
@@ -291,7 +298,11 @@ function SolarSystemGroup({ dataset, activeEdgesWithNodes, setActiveNode, active
           <Node 
             key={node.id} 
             data={node} 
-            onClickNode={setActiveNode} 
+            onClickNode={(clickedNode) => {
+              // Only select if not currently dragging (OrbitControls specific)
+              if (activeNode?.id === clickedNode.id) return
+              setActiveNode(clickedNode)
+            }} 
             isGlowing={isActive || isBbGlowFallback}
             isLabelVisible={isLabelVisible}
           />

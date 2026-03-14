@@ -64,19 +64,6 @@ export default function Node({ data, onClickNode, isGlowing, isLabelVisible }) {
     <group 
       ref={groupRef}
       position={new THREE.Vector3(...data.position)}
-      onClick={(e) => {
-        e.stopPropagation()
-        onClickNode(data)
-      }}
-      onPointerOver={(e) => {
-        e.stopPropagation()
-        setHover(true)
-        document.body.style.cursor = 'pointer'
-      }}
-      onPointerOut={(e) => {
-        setHover(false)
-        document.body.style.cursor = 'default'
-      }}
     >
       <mesh>
         <sphereGeometry args={[0.3, 32, 32]} />
@@ -88,6 +75,26 @@ export default function Node({ data, onClickNode, isGlowing, isLabelVisible }) {
           transparent={true}
           opacity={isLabelVisible ? 1 : 0.3} // Dim nodes not in the chain
         />
+      </mesh>
+
+      {/* Invisible larger hitbox for easier touch/click */}
+      <mesh
+        onClick={(e) => {
+          e.stopPropagation()
+          onClickNode(data)
+        }}
+        onPointerOver={(e) => {
+          e.stopPropagation()
+          setHover(true)
+          document.body.style.cursor = 'pointer'
+        }}
+        onPointerOut={(e) => {
+          setHover(false)
+          document.body.style.cursor = 'default'
+        }}
+      >
+        <sphereGeometry args={[window.innerWidth <= 768 ? 0.9 : 0.5, 16, 16]} />
+        <meshBasicMaterial transparent opacity={0} />
       </mesh>
 
       <Billboard
