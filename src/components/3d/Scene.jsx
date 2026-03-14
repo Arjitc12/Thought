@@ -1,16 +1,17 @@
 import React, { useRef, useEffect } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { OrbitControls, Stars, Text } from '@react-three/drei'
+import { OrbitControls, Stars, Text, Billboard } from '@react-three/drei'
 import * as THREE from 'three'
 import Node from './Node'
 import Edge from './Edge'
 
-function CameraController({ activeNode, searchData }) {
+function CameraController({ activeNode, searchData, cameraMode, zoomAction, onZoomComplete }) {
   const { camera, controls } = useThree()
   const vec = new THREE.Vector3()
   const targetVec = new THREE.Vector3()
   const animatingRef = useRef(false)
   const lastTargetIdRef = useRef(null)
+  const zoomOffsetRef = useRef(0)
 
   useEffect(() => {
     // Detect when the user clicks a new target to trigger a fresh camera flight
@@ -18,6 +19,7 @@ function CameraController({ activeNode, searchData }) {
     if (currentId !== lastTargetIdRef.current) {
       animatingRef.current = true
       lastTargetIdRef.current = currentId
+      zoomOffsetRef.current = 0 // Reset zoom adjustment on flight
     }
   }, [activeNode, searchData])
 
@@ -30,48 +32,91 @@ function CameraController({ activeNode, searchData }) {
     return () => controls.removeEventListener('start', handleStart)
   }, [controls])
 
+  // Handle manual zoom triggers
+  useEffect(() => {
+    if (zoomAction) {
+      const step = 5 // Finer zoom steps
+      if (zoomAction === 'IN') zoomOffsetRef.current -= step
+      if (zoomAction === 'OUT') zoomOffsetRef.current += step
+      animatingRef.current = true // Re-trigger smoothing
+      onZoomComplete()
+    }
+  }, [zoomAction, onZoomComplete])
+
   useFrame(() => {
     if (!controls) return
 
-    // Global navigation means we always rotate and zoom relative to the center
+    // Default target is the center
     targetVec.set(0, 0, 0)
-
     const isMobile = window.innerWidth <= 768
+    
+    // Rotation compensation (SolarSystemGroup is rotated Math.PI / 8 on X)
+    const planeRotationX = Math.PI / 8
 
     if (activeNode) {
+      // Node position is in local space of SolarSystemGroup, need to transform to world
       const nodePos = new THREE.Vector3(...activeNode.position)
+      // Apply the same rotation as SolarSystemGroup to find world position
+      nodePos.applyAxisAngle(new THREE.Vector3(1, 0, 0), planeRotationX)
       
-      if (nodePos.length() < 0.1) {
-        // Fallback for Big Bang
-        vec.set(0, isMobile ? 25 : 15, 40)
+      const outwardDir = nodePos.clone().normalize()
+      
+      if (cameraMode === 'BIRDSEYE') {
+        const height = (isMobile ? 180 : 150) + zoomOffsetRef.current
+        // Offset camera directly "above" the node relative to the tilted plane
+        const upDir = new THREE.Vector3(0, 1, 0).applyAxisAngle(new THREE.Vector3(1, 0, 0), planeRotationX)
+        vec.copy(nodePos).add(upDir.multiplyScalar(height))
+        targetVec.copy(nodePos)
+      } else if (cameraMode === 'ORBIT') {
+        const dist = (isMobile ? 130 : 110) + zoomOffsetRef.current
+        vec.copy(nodePos).add(outwardDir.multiplyScalar(dist))
+        vec.y += 60
+        targetVec.copy(nodePos)
       } else {
-        // Position camera behind the node along the ray from origin
-        const outwardDir = nodePos.clone().normalize()
-        vec.copy(nodePos).add(outwardDir.multiplyScalar(isMobile ? 40 : 30))
-        vec.y += isMobile ? 15 : 10 // Higher elevation for mobile to clear bottom sheet
+        // FOLLOW
+        if (nodePos.length() < 0.1) {
+          vec.set(0, isMobile ? 40 : 30, 60 + zoomOffsetRef.current)
+        } else {
+          const dist = (isMobile ? 60 : 50) + zoomOffsetRef.current
+          vec.copy(nodePos).add(outwardDir.multiplyScalar(dist))
+          vec.y += isMobile ? 25 : 20
+        }
+        targetVec.copy(nodePos)
       }
-
-      // On mobile, we might want to look slightly "above" the center to keep node in upper half
-      if (isMobile) {
-        targetVec.set(0, -5, 0)
-      }
-
     } else if (searchData) {
       const searchPos = new THREE.Vector3(...searchData.position)
+      searchPos.applyAxisAngle(new THREE.Vector3(1, 0, 0), planeRotationX)
       const outwardDir = searchPos.clone().normalize()
-      vec.copy(searchPos).add(outwardDir.multiplyScalar(isMobile ? 70 : 60))
-      vec.y += isMobile ? 30 : 20
-
+      const dist = (isMobile ? 90 : 80) + zoomOffsetRef.current
+      vec.copy(searchPos).add(outwardDir.multiplyScalar(dist))
+      vec.y += isMobile ? 50 : 40
+      targetVec.copy(searchPos)
     } else {
-        vec.set(0, 50, 150)
+      // Home state - Respect current pan/orbit state
+      targetVec.copy(controls.target)
+      
+      const currentCamDir = new THREE.Vector3().subVectors(camera.position, controls.target).normalize()
+      
+      if (cameraMode === 'BIRDSEYE') {
+        const height = 400 + zoomOffsetRef.current
+        vec.set(0, height, 0.1) // Still mostly top-down for birds-eye
+        targetVec.set(0, 0, 0)
+      } else if (cameraMode === 'ORBIT') {
+        // Maintain direction but adjust distance
+        const dist = 350 + zoomOffsetRef.current
+        vec.copy(controls.target).add(currentCamDir.multiplyScalar(dist))
+      } else {
+        // Standard Global: allow some manual freedom
+        const dist = 220 + zoomOffsetRef.current
+        vec.copy(controls.target).add(currentCamDir.multiplyScalar(dist))
+      }
     }
 
-    // Only force the camera if we are in an active "flight" to a new node.
     if (animatingRef.current) {
-      camera.position.lerp(vec, 0.04)
-      controls.target.lerp(targetVec, 0.04)
+      camera.position.lerp(vec, 0.12)
+      controls.target.lerp(targetVec, 0.12)
       
-      if (camera.position.distanceTo(vec) < 1.0) {
+      if (camera.position.distanceTo(vec) < 0.1 && controls.target.distanceTo(targetVec) < 0.1) {
         animatingRef.current = false
       }
     }
@@ -84,7 +129,7 @@ function CameraController({ activeNode, searchData }) {
   return null
 }
 
-export default function Scene({ activeNode, setActiveNode, searchData, dataset }) {
+export default function Scene({ activeNode, setActiveNode, searchData, dataset, cameraMode, zoomAction, onZoomComplete }) {
   // If there's an active node, compute its entire causal chain (forward and backward)
   let activeEdgesWithNodes = []
   
@@ -151,6 +196,9 @@ export default function Scene({ activeNode, setActiveNode, searchData, dataset }
       <CameraController 
         activeNode={activeNode} 
         searchData={searchData} 
+        cameraMode={cameraMode}
+        zoomAction={zoomAction}
+        onZoomComplete={onZoomComplete}
       />
 
       <SolarSystemGroup 
@@ -188,22 +236,26 @@ function OrbitRings({ eras }) {
             </line>
             
             {/* The Label identifying the Era Ring */}
-            <Text
+            <Billboard
               position={[
                 Math.cos(index) * era.radiusBase,
                 0,
                 Math.sin(index) * era.radiusBase
               ]}
-              // Scale the text slightly based on the radius so larger outer rings have bigger labels
-              fontSize={Math.max(0.8, era.radiusBase * 0.02)}
-              color="#88ccff"
-              anchorX="center"
-              anchorY="bottom"
-              outlineWidth={0.02}
-              outlineColor="black"
+              follow={true}
             >
-              {era.name} ({era.start > 0 ? era.start + ' AD' : Math.abs(era.start) + ' BC'})
-            </Text>
+              <Text
+                // Scale the text slightly based on the radius so larger outer rings have bigger labels
+                fontSize={Math.max(0.8, era.radiusBase * 0.02)}
+                color="#88ccff"
+                anchorX="center"
+                anchorY="bottom"
+                outlineWidth={0.02}
+                outlineColor="black"
+              >
+                {era.name} ({era.start > 0 ? era.start + ' AD' : Math.abs(era.start) + ' BC'})
+              </Text>
+            </Billboard>
           </group>
         );
       })}
@@ -213,7 +265,7 @@ function OrbitRings({ eras }) {
 
 function SolarSystemGroup({ dataset, activeEdgesWithNodes, setActiveNode, activeNode, activeNodeIds }) {
   return (
-    <group>
+    <group rotation={[Math.PI / 8, 0, 0]}>
       <OrbitRings eras={dataset.eras} />
       {dataset.nodes.map(node => {
         const isActive = activeNode?.id === node.id;

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { Text, Html } from '@react-three/drei'
+import { Text, Html, Billboard } from '@react-three/drei'
 import * as THREE from 'three'
 
 export default function Node({ data, onClickNode, isGlowing, isLabelVisible }) {
@@ -90,33 +90,44 @@ export default function Node({ data, onClickNode, isGlowing, isLabelVisible }) {
         />
       </mesh>
 
-      <Text
-        ref={textRef}
+      <Billboard
         position={[0, 0.5, 0]}
-        fontSize={0.2}
-        color="white"
-        anchorX="center"
-        anchorY="middle"
-        outlineWidth={0.02}
-        outlineColor="black"
-        transparent
+        follow={true}
+        lockX={false}
+        lockY={false}
+        lockZ={false}
       >
-        {data.title}
-      </Text>
+        <Text
+          ref={textRef}
+          fontSize={0.2}
+          color="white"
+          anchorX="center"
+          anchorY="middle"
+          outlineWidth={0.02}
+          outlineColor="black"
+          transparent
+        >
+          {data.title}
+        </Text>
+      </Billboard>
       
-      <Text
-        ref={subTextRef}
+      <Billboard
         position={[0, 0.25, 0]}
-        fontSize={0.12}
-        color={color}
-        anchorX="center"
-        anchorY="middle"
-        outlineWidth={0.01}
-        outlineColor="black"
-        transparent
+        follow={true}
       >
-        {data.date > 0 ? `${data.date} AD` : `${Math.abs(data.date)} BC`}
-      </Text>
+        <Text
+          ref={subTextRef}
+          fontSize={0.12}
+          color={color}
+          anchorX="center"
+          anchorY="middle"
+          outlineWidth={0.01}
+          outlineColor="black"
+          transparent
+        >
+          {data.date > 0 ? `${data.date} AD` : `${Math.abs(data.date)} BC`}
+        </Text>
+      </Billboard>
     </group>
   )
 }

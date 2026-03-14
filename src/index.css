@@ -707,3 +707,67 @@ body, html {
   opacity: 0.6;
   margin-bottom: 10px;
 }
+
+/* --- Camera Controls --- */
+.camera-controls {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 25;
+  pointer-events: auto;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(10, 15, 30, 0.4);
+  backdrop-filter: blur(12px);
+  padding: 6px;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+}
+
+.ctrl-btn, .mode-btn {
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.ctrl-btn:hover, .mode-btn:hover {
+  background: rgba(74, 144, 226, 0.2);
+  border-color: var(--color-event);
+}
+
+.mode-btn.active {
+  background: var(--color-event);
+  color: #000;
+  border-color: white;
+  box-shadow: 0 0 15px rgba(74, 144, 226, 0.4);
+}
+
+@media (max-width: 768px) {
+  .camera-controls {
+    bottom: 120px;
+    right: 20px;
+    flex-direction: row;
+  }
+  
+  .control-group {
+    flex-direction: row;
+  }
+}

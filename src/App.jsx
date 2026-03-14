@@ -12,6 +12,8 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('history')
   const [activeNode, setActiveNode] = useState(null)
   const [searchData, setSearchData] = useState(null)
+  const [cameraMode, setCameraMode] = useState('FOLLOW') // FOLLOW, ORBIT, BIRDSEYE
+  const [zoomAction, setZoomAction] = useState(null) // 'IN', 'OUT', or null
 
   const currentDataset = activeSection === 'history' ? dataset : religionsDataset
 
@@ -56,6 +58,9 @@ export default function App() {
           setActiveNode={handleNodeSelect} 
           searchData={searchData} 
           dataset={currentDataset}
+          cameraMode={cameraMode}
+          zoomAction={zoomAction}
+          onZoomComplete={() => setZoomAction(null)}
         />
       </div>
 
@@ -116,6 +121,37 @@ export default function App() {
                 ↺ RESET_VIEW
               </button>
             )}
+          </div>
+        </div>
+
+        <div className="camera-controls">
+          <div className="control-group zoom-group">
+            <button 
+              className="ctrl-btn" 
+              onClick={() => { haptics.light(); setZoomAction('IN'); }}
+              title="Zoom In"
+            >
+              +
+            </button>
+            <button 
+              className="ctrl-btn" 
+              onClick={() => { haptics.light(); setZoomAction('OUT'); }}
+              title="Zoom Out"
+            >
+              -
+            </button>
+          </div>
+
+          <div className="control-group mode-group">
+             {['FOLLOW', 'ORBIT', 'BIRDSEYE'].map(mode => (
+               <button 
+                 key={mode}
+                 className={`mode-btn ${cameraMode === mode ? 'active' : ''}`}
+                 onClick={() => { haptics.medium(); setCameraMode(mode); }}
+               >
+                 {mode[0]}
+               </button>
+             ))}
           </div>
         </div>
       </div>
