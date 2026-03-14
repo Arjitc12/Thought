@@ -1614,6 +1614,123 @@ export const dataset = {
       "lat": 37.7,
       "lng": -122.4,
       "description": "Algorithms successfully mimic human reasoning and creativity."
+    },
+    {
+      "id": "han",
+      "title": "Han Dynasty",
+      "date": -202,
+      "type": "event",
+      "position": [0, 0, 0],
+      "orbitRadius": 36,
+      "orbitAngle": 2.1,
+      "orbitSpeed": 0.1,
+      "lat": 34.2,
+      "lng": 108.9,
+      "description": "Golden age of Chinese philosophy and the dawn of the Silk Road."
+    },
+    {
+      "id": "byz",
+      "title": "Byzantine Empire",
+      "date": 527,
+      "type": "event",
+      "position": [0, 0, 0],
+      "orbitRadius": 54,
+      "orbitAngle": 4.5,
+      "orbitSpeed": 0.15,
+      "lat": 41.0,
+      "lng": 28.9,
+      "description": "Preservation of Roman law and Greek culture in Constantinople."
+    },
+    {
+      "id": "tang",
+      "title": "Tang Dynasty",
+      "date": 618,
+      "type": "event",
+      "position": [0, 0, 0],
+      "orbitRadius": 58,
+      "orbitAngle": 1.1,
+      "orbitSpeed": 0.15,
+      "lat": 34.2,
+      "lng": 108.9,
+      "description": "High point of Chinese civilization and international cosmopolitanism."
+    },
+    {
+      "id": "song",
+      "title": "Song Dynasty",
+      "date": 960,
+      "type": "event",
+      "position": [0, 0, 0],
+      "orbitRadius": 56,
+      "orbitAngle": 3.2,
+      "orbitSpeed": 0.15,
+      "lat": 34.7,
+      "lng": 114.3,
+      "description": "Era of gunpowder, the compass, and early modern economic growth."
+    },
+    {
+      "id": "ottoman",
+      "title": "Ottoman Empire",
+      "date": 1453,
+      "type": "event",
+      "position": [0, 0, 0],
+      "orbitRadius": 74,
+      "orbitAngle": 5.8,
+      "orbitSpeed": 0.2,
+      "lat": 41.0,
+      "lng": 28.9,
+      "description": "The fall of Constantinople and the rise of a transcontinental superpower."
+    },
+    {
+      "id": "napoleon",
+      "title": "Napoleon Bonaparte",
+      "date": 1804,
+      "type": "person",
+      "position": [0, 0, 0],
+      "orbitRadius": 98,
+      "orbitAngle": 0.8,
+      "orbitSpeed": 0.25,
+      "lat": 48.8,
+      "lng": 2.3,
+      "description": "Legal reforms and revolutionary ideals spreading across Europe."
+    },
+    {
+      "id": "elec",
+      "title": "Electrical Power",
+      "date": 1880,
+      "type": "event",
+      "position": [0, 0, 0],
+      "orbitRadius": 94,
+      "orbitAngle": 4.2,
+      "orbitSpeed": 0.25,
+      "lat": 40.7,
+      "lng": -74.0,
+      "description": "The second industrial revolution lights up the world."
+    },
+    {
+      "id": "smartphone",
+      "title": "Smartphone",
+      "date": 2007,
+      "type": "event",
+      "position": [0, 0, 0],
+      "orbitRadius": 118,
+      "orbitAngle": 1.8,
+      "orbitSpeed": 0.3,
+      "lat": 37.3,
+      "lng": -122.0,
+      "description": "Ubiquitous computing and the democratization of information."
+    },
+    {
+      "id": "starship",
+      "title": "SpaceX Starship",
+      "date": 2024,
+      "type": "event",
+      "position": [0, 0, 0],
+      "orbitRadius": 116,
+      "orbitAngle": 4.8,
+      "orbitSpeed": 0.3,
+      "lat": 25.9,
+      "lng": -97.1,
+      "description": "Testing the gateway to multi-planetary human existence."
     }
   ],
   "edges": [
@@ -2044,6 +2161,42 @@ export const dataset = {
     {
       "source": "web",
       "target": "ai"
+    },
+    {
+      "source": "qin",
+      "target": "han"
+    },
+    {
+      "source": "fallrom",
+      "target": "byz"
+    },
+    {
+      "source": "muh",
+      "target": "tang"
+    },
+    {
+      "source": "tang",
+      "target": "song"
+    },
+    {
+      "source": "byz",
+      "target": "ottoman"
+    },
+    {
+      "source": "frev",
+      "target": "napoleon"
+    },
+    {
+      "source": "steam",
+      "target": "elec"
+    },
+    {
+      "source": "web",
+      "target": "smartphone"
+    },
+    {
+      "source": "ai",
+      "target": "starship"
     }
   ],
   "eras": [
